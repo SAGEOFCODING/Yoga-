@@ -207,12 +207,12 @@ const AssessmentForm = () => {
                   <input type="number" min="0" value={assessment.height} onChange={(e) => setAssessment({ height: e.target.value })} placeholder="175" />
                 </div>
                 <div className="input-group">
-                  <label>Waist (cm)</label>
-                  <input type="number" min="0" value={assessment.waist} onChange={(e) => setAssessment({ waist: e.target.value })} placeholder="80" />
+                  <label>Waist (in)</label>
+                  <input type="number" min="0" value={assessment.waist} onChange={(e) => setAssessment({ waist: e.target.value })} placeholder="32" />
                 </div>
                 <div className="input-group">
-                  <label>Hip (cm)</label>
-                  <input type="number" min="0" value={assessment.hip} onChange={(e) => setAssessment({ hip: e.target.value })} placeholder="100" />
+                  <label>Hip (in)</label>
+                  <input type="number" min="0" value={assessment.hip} onChange={(e) => setAssessment({ hip: e.target.value })} placeholder="40" />
                 </div>
               </div>
 

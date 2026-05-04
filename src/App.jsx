@@ -8,14 +8,18 @@ import AssessmentForm from './components/AssessmentForm';
 import DashboardPage from './pages/DashboardPage';
 import MeditationPage from './pages/MeditationPage';
 import NutritionPage from './pages/NutritionPage';
-import RecoveryPage from './pages/RecoveryPage';
+
+import AuthPage from './components/AuthPage';
+import Chatbot from './components/Chatbot';
 
 import './index.css';
 
 function App() {
-  const { isAssessed, step, setStep, activePage } = useStore();
+  const { isAssessed, step, setStep, activePage, isLoggedIn } = useStore();
 
   const handleStart = () => setStep(1);
+
+  if (!isLoggedIn) return <AuthPage />;
 
   return (
     <div className="App" style={{ minHeight: '100vh', background: 'var(--color-bg-primary)' }}>
@@ -35,10 +39,10 @@ function App() {
             {activePage === 'dashboard' && <DashboardPage key="dashboard" />}
             {activePage === 'meditation' && <MeditationPage key="meditation" />}
             {activePage === 'nutrition' && <NutritionPage key="nutrition" />}
-            {activePage === 'recovery' && <RecoveryPage key="recovery" />}
           </>
         )}
       </AnimatePresence>
+      <Chatbot />
     </div>
   );
 }

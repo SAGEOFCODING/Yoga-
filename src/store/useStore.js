@@ -23,6 +23,8 @@ export const useStore = create((set) => ({
   step: 0,
   activePage: 'dashboard',
   routine: [],
+  isLoggedIn: false,
+  currentUser: null,
   
   // New Body Composition State
   bodyComp: {
@@ -40,6 +42,9 @@ export const useStore = create((set) => ({
 
   setStep: (step) => set({ step }),
   setActivePage: (activePage) => set({ activePage }),
+  softReset: () => set({ isAssessed: false, step: 0, activePage: 'dashboard' }),
+  loginUser: (user) => set({ isLoggedIn: true, currentUser: user }),
+  logoutUser: () => set({ isLoggedIn: false, currentUser: null, isAssessed: false, step: 0 }),
 
   setAssessment: (data) => set((state) => {
     // If trainingPreference changed and we are already assessed, recalculate the exercise plan immediately
@@ -67,14 +72,17 @@ export const useStore = create((set) => ({
     const age = parseFloat(ageStr) || 25;
     const weight = parseFloat(weightStr) || 60;
     const height = parseFloat(heightStr) || 165;
-    const waist = parseFloat(waistStr) || 80;
-    const hip = parseFloat(hipStr) || 100;
+    const waist = parseFloat(waistStr) || 32;
+    const hip = parseFloat(hipStr) || 40;
+
+    const waistCm = waist * 2.54;
+    const hipCm = hip * 2.54;
 
     // Body Comp Calc
     const bmi = weight / ((height / 100) ** 2);
-    let rfm = gender === 'male' ? 64 - (20 * height / waist) : 76 - (20 * height / waist);
-    const whtr = waist / height;
-    const whr = waist / hip;
+    let rfm = gender === 'male' ? 64 - (20 * height / waistCm) : 76 - (20 * height / waistCm);
+    const whtr = waistCm / height;
+    const whr = waistCm / hipCm;
 
     // Fitness Classification
     let fitnessClass = 'Fit';

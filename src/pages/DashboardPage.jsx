@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useStore } from '../store/useStore';
 import WeeklySchedule from '../components/WeeklySchedule';
-import { ShieldCheck, Info } from 'lucide-react';
+import SleepTracker from '../components/SleepTracker';
+import WeightLog from '../components/WeightLog';
+import { ShieldCheck, Info, Brain, Wind, Zap } from 'lucide-react';
 
 const DashboardPage = () => {
   const { bodyComp, assessment, reset } = useStore();
@@ -44,12 +46,49 @@ const DashboardPage = () => {
   ];
   const quoteOfDay = QUOTES[new Date().getDay() % QUOTES.length];
 
+  const WELLNESS_TIPS = [
+    { icon: 'Wind', title: 'Box Breathing', body: 'Inhale 4s → Hold 4s → Exhale 4s → Hold 4s. Repeat 4x to instantly calm your nervous system.' },
+    { icon: 'Zap', title: 'Cold Water Reset', body: 'Splash cold water on your face and wrists to trigger the dive reflex and lower heart rate in 30 seconds.' },
+    { icon: 'Brain', title: '5-4-3-2-1 Grounding', body: 'Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. Stops anxiety spirals instantly.' },
+    { icon: 'Wind', title: 'Progressive Relaxation', body: 'Tense each muscle group for 5s then release, starting from toes to head. Melts physical tension.' },
+    { icon: 'Zap', title: 'Anger Exit Rule', body: 'Remove yourself from the trigger for 90 seconds — that is how long a cortisol spike lasts in your bloodstream.' },
+    { icon: 'Brain', title: 'Hum to Calm Down', body: 'Hum any tune for 2 minutes to activate the vagus nerve and reduce stress hormones naturally.' },
+    { icon: 'Wind', title: '2-Minute Overwhelm Rule', body: 'If a task takes less than 2 minutes, do it now. Clears mental load and reduces background anxiety.' },
+  ];
+
+  const todayIndex = new Date().getDay();
+  const dailyTips = [
+    WELLNESS_TIPS[todayIndex % WELLNESS_TIPS.length],
+    WELLNESS_TIPS[(todayIndex + 1) % WELLNESS_TIPS.length],
+    WELLNESS_TIPS[(todayIndex + 2) % WELLNESS_TIPS.length],
+  ];
+
   return (
     <div className="container" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
       {/* ═══ HEADER: Quote of the Day ═══ */}
       <div style={{ background: 'var(--color-bg-elevated)', border: '1px solid var(--color-border)', borderRadius: '16px', padding: '28px 32px', textAlign: 'center', marginBottom: '48px' }}>
         <h4 style={{ color: 'var(--color-accent-secondary)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '12px', fontWeight: 600 }}>Quote of the Day</h4>
         <p style={{ fontSize: '22px', color: 'var(--color-text-primary)', fontStyle: 'italic', fontWeight: 500, lineHeight: 1.5 }}>"{quoteOfDay}"</p>
+      </div>
+
+      {/* ═══ WELLNESS TIPS ═══ */}
+      <div style={{ marginBottom: '48px' }}>
+        <h4 style={{ color: 'var(--color-text-secondary)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '16px', fontWeight: 600 }}>Quick Wellness Tips</h4>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+          {dailyTips.map((tip, i) => {
+            let IconComponent = Brain;
+            if (tip.icon === 'Wind') IconComponent = Wind;
+            if (tip.icon === 'Zap') IconComponent = Zap;
+
+            return (
+              <div key={i} className="glass-card-full" style={{ padding: '20px' }}>
+                <IconComponent size={20} color="var(--color-accent-primary)" />
+                <h5 style={{ color: 'var(--color-accent-secondary)', fontSize: '14px', marginBottom: '8px', marginTop: '10px' }}>{tip.title}</h5>
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '13px', lineHeight: 1.6 }}>{tip.body}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* ═══ TOP SECTION: RFM Sidebar + Exercise Protocol ═══ */}
@@ -110,6 +149,11 @@ const DashboardPage = () => {
 
         {/* RIGHT: Exercise Protocol */}
         <WeeklySchedule onCompletionChange={setTotalCompleted} />
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', marginTop: '48px' }}>
+        <SleepTracker />
+        <WeightLog />
       </div>
     </div>
   );

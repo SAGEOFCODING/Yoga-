@@ -3,14 +3,17 @@ import { useStore } from '../store/useStore';
 import { Shield } from 'lucide-react';
 
 const Navbar = () => {
-  const { isAssessed, reset, activePage, setActivePage } = useStore();
+  const { isAssessed, reset, activePage, setActivePage, softReset, currentUser, logoutUser } = useStore();
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      reset();
+      softReset();
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
     }
   };
 
@@ -53,7 +56,26 @@ const Navbar = () => {
           <NavLink page="dashboard" label="Dashboard" />
           <NavLink page="meditation" label="Meditation" />
           <NavLink page="nutrition" label="Nutrition" />
-          <NavLink page="recovery" label="Recovery" />
+          <button
+            onClick={() => {
+              if (activePage !== 'dashboard') {
+                setActivePage('dashboard');
+                setTimeout(() => document.getElementById('therapy-section')?.scrollIntoView({ behavior: 'smooth' }), 300);
+              } else {
+                document.getElementById('therapy-section')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            style={{
+              background: 'transparent', border: 'none', cursor: 'pointer',
+              color: 'var(--color-text-secondary)',
+              fontWeight: 500,
+              borderBottom: '2px solid transparent',
+              padding: '22px 4px 18px', fontSize: '14px', transition: 'all 0.2s ease',
+              textTransform: 'uppercase', letterSpacing: '0.5px'
+            }}
+          >
+            Exercise
+          </button>
         </div>
       ) : (
         <div style={{ display: 'flex', gap: '24px', alignItems: 'center', fontWeight: 500, fontSize: '14px' }}>
@@ -78,13 +100,17 @@ const Navbar = () => {
         </div>
       )}
 
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <button 
-          className="btn-primary" 
-          onClick={reset} 
-          style={{ padding: '8px 16px', height: 'auto', borderRadius: '8px', fontSize: '13px' }}
-        >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <span style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }}>
+          {currentUser?.name}
+        </span>
+        <button className="btn-primary" onClick={isAssessed ? reset : () => setStep(1)}
+          style={{ padding: '8px 16px', height: 'auto', borderRadius: '8px', fontSize: '13px' }}>
           {isAssessed ? 'New Analysis' : 'Initialize'}
+        </button>
+        <button onClick={logoutUser}
+          style={{ background: 'transparent', border: '1px solid var(--color-border)', color: 'var(--color-text-tertiary)', padding: '8px 14px', borderRadius: '8px', fontSize: '13px', cursor: 'pointer' }}>
+          Logout
         </button>
       </div>
     </nav>

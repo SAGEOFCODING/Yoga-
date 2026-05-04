@@ -3,19 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, PlayCircle } from 'lucide-react';
 
 const RECIPE_YT_IDS = {
-  'Moong Dal Chilla': '7Oq17XWX9YI',
+  'Moong Dal Chilla': 'f8PBaFTsRHQ',
   'Palak Paneer': 'aEBEdSAeWzY',
-  'Dal Tadka': 'd9DFXsnFSzc',
-  'Oats': 'KJZH4vXMENk',
+  'Dal Tadka': 'NVu2JOBApbk',
+  'Oats': 'jFMsKpMbWtE',
   'Quinoa': 'sFmVqwTHpFU',
   'Bajra': 'pXMZPPHMpGM',
   'Sprouts': '7QjVcPkGniQ',
-  'Besan': 'nGvkVR8UxoQ',
+  'Besan': 'JB8TBqVaRxc',
   'Rajma': 'CnSDr88GKHE',
-  'Poha': 'KJZH4vXMENk',
+  'Poha': 'L7qILm3EF9c',
   'Paneer Bhurji': 'sOjDHRhAorE',
   'Bhindi': 'UczRMrkFHdA',
-  'Lauki': 'UczRMrkFHdA',
+  'Lauki': 'qO1IKCzqpqY',
 };
 
 const getRecipeYtId = (name) => {
@@ -123,7 +123,7 @@ const RecipeCard = ({ meal }) => {
         <div style={{ marginTop: '16px', borderRadius: '12px', overflow: 'hidden', background: '#000', aspectRatio: '16/9' }}>
           <iframe 
             width="100%" height="100%" 
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} 
+            src={`https://www.youtube.com/embed/${videoId}`} 
             title={meal.name} 
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

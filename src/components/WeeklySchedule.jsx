@@ -135,7 +135,7 @@ const ExerciseRow = ({ session, isCompleted, onToggle }) => {
         <div style={{ marginTop: '16px', borderRadius: '12px', overflow: 'hidden', background: '#000', aspectRatio: '16/9' }}>
           <iframe 
             width="100%" height="100%" 
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} 
+            src={`https://www.youtube.com/embed/${videoId}`} 
             title={session.title} 
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
