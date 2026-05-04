@@ -56,26 +56,7 @@ const Navbar = () => {
           <NavLink page="dashboard" label="Dashboard" />
           <NavLink page="meditation" label="Meditation" />
           <NavLink page="nutrition" label="Nutrition" />
-          <button
-            onClick={() => {
-              if (activePage !== 'dashboard') {
-                setActivePage('dashboard');
-                setTimeout(() => document.getElementById('therapy-section')?.scrollIntoView({ behavior: 'smooth' }), 300);
-              } else {
-                document.getElementById('therapy-section')?.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            style={{
-              background: 'transparent', border: 'none', cursor: 'pointer',
-              color: 'var(--color-text-secondary)',
-              fontWeight: 500,
-              borderBottom: '2px solid transparent',
-              padding: '22px 4px 18px', fontSize: '14px', transition: 'all 0.2s ease',
-              textTransform: 'uppercase', letterSpacing: '0.5px'
-            }}
-          >
-            Exercise
-          </button>
+          <NavLink page="exercise" label="Exercise" />
         </div>
       ) : (
         <div style={{ display: 'flex', gap: '24px', alignItems: 'center', fontWeight: 500, fontSize: '14px' }}>

@@ -1,4 +1,3 @@
-// ⚠️ Add VITE_ANTHROPIC_API_KEY=your_key_here to your .env file
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 
@@ -31,19 +30,11 @@ const Chatbot = () => {
     setConversationHistory(updatedHistory);
     setIsLoading(true);
 
-    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
-    if (!apiKey) {
-      setMessages(prev => [...prev, { role: 'assistant', content: 'API key not configured. Please add VITE_ANTHROPIC_API_KEY=your_key_here to your .env file in the project root and restart the dev server.' }]);
-      setIsLoading(false);
-      return;
-    }
-
     try {
       const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': apiKey || '',
           'anthropic-version': '2023-06-01',
           'anthropic-dangerous-direct-browser-access': 'true'
         },
@@ -54,10 +45,10 @@ const Chatbot = () => {
           messages: updatedHistory
         })
       });
-      
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error?.message || 'Unknown API error');
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error?.message || response.statusText || 'API error');
       }
 
       const data = await response.json();

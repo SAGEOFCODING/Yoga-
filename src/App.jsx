@@ -8,6 +8,7 @@ import AssessmentForm from './components/AssessmentForm';
 import DashboardPage from './pages/DashboardPage';
 import MeditationPage from './pages/MeditationPage';
 import NutritionPage from './pages/NutritionPage';
+import ExercisePage from './pages/ExercisePage';
 
 import AuthPage from './components/AuthPage';
 import Chatbot from './components/Chatbot';
@@ -39,6 +40,7 @@ function App() {
             {activePage === 'dashboard' && <DashboardPage key="dashboard" />}
             {activePage === 'meditation' && <MeditationPage key="meditation" />}
             {activePage === 'nutrition' && <NutritionPage key="nutrition" />}
+            {activePage === 'exercise' && <ExercisePage key="exercise" />}
           </>
         )}
       </AnimatePresence>
