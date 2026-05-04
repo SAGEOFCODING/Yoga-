@@ -101,9 +101,14 @@ const Navbar = () => {
       )}
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }}>
-          {currentUser?.name}
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-bg-elevated)', border: '1px solid var(--color-border)', borderRadius: '100px', padding: '6px 14px 6px 6px' }}>
+          <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--color-accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 700, color: 'var(--color-bg-primary)' }}>
+            {currentUser?.name?.charAt(0).toUpperCase()}
+          </div>
+          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-text-primary)' }}>
+            {currentUser?.name}
+          </span>
+        </div>
         <button className="btn-primary" onClick={isAssessed ? reset : () => setStep(1)}
           style={{ padding: '8px 16px', height: 'auto', borderRadius: '8px', fontSize: '13px' }}>
           {isAssessed ? 'New Analysis' : 'Initialize'}

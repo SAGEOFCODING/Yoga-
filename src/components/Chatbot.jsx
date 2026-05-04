@@ -5,8 +5,9 @@ import { MessageCircle, X } from 'lucide-react';
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'bot', content: "Hi! I'm your LockedGate health assistant. Ask me anything about your plan, body composition, stress, or fitness 💪" }
+    { role: 'assistant', content: "Hi! I'm your LockedGate health assistant. Ask me anything about your plan, body composition, stress, or fitness 💪" }
   ]);
+  const [conversationHistory, setConversationHistory] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
@@ -26,39 +27,45 @@ const Chatbot = () => {
     const userMessage = input.trim();
     setInput('');
     setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    const updatedHistory = [...conversationHistory, { role: 'user', content: userMessage }];
+    setConversationHistory(updatedHistory);
     setIsLoading(true);
 
+    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
+    if (!apiKey) {
+      setMessages(prev => [...prev, { role: 'assistant', content: 'API key not configured. Please add VITE_ANTHROPIC_API_KEY=your_key_here to your .env file in the project root and restart the dev server.' }]);
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
-      if (!apiKey) {
-         setMessages(prev => [...prev, { role: 'bot', content: 'API key is missing! Please configure VITE_ANTHROPIC_API_KEY in .env' }]);
-         setIsLoading(false);
-         return;
-      }
       const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
-          'x-api-key': apiKey,
+          'x-api-key': apiKey || '',
           'anthropic-version': '2023-06-01',
-          'anthropic-dangerously-allow-browser': 'true'
+          'anthropic-dangerous-direct-browser-access': 'true'
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
           max_tokens: 500,
-          system: "You are a helpful assistant for the Locked-Gate Therapy app. Answer questions about the app features: bio assessment, RFM body composition scoring, weekly exercise protocols (Strength, Yoga, Mixed), nutrition meal plans, meditation timer, sleep and weight tracking. Also answer basic health questions about body fat, stress management, mental wellness, metabolism, and fitness. Keep all answers concise, warm, and supportive. Never diagnose medical conditions.",
-          messages: [{ role: 'user', content: userMessage }]
+          system: "You are a helpful assistant for the Locked-Gate Therapy app. Answer questions about the app features: bio assessment, RFM body composition scoring, weekly exercise protocols, nutrition meal plans, meditation timer, sleep and weight tracking. Also answer basic health questions about body fat, stress management, mental wellness, metabolism, and fitness. Keep answers concise, warm and supportive. Never diagnose medical conditions.",
+          messages: updatedHistory
         })
       });
-      const data = await response.json();
-      if (data.error) {
-        setMessages(prev => [...prev, { role: 'bot', content: `Error: ${data.error.message}` }]);
-      } else {
-        const reply = data.content[0].text;
-        setMessages(prev => [...prev, { role: 'bot', content: reply }]);
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error?.message || 'Unknown API error');
       }
+
+      const data = await response.json();
+      const reply = data.content[0].text;
+      setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
+      setConversationHistory(prev => [...prev, { role: 'assistant', content: reply }]);
     } catch (err) {
-      setMessages(prev => [...prev, { role: 'bot', content: 'Sorry, there was an error connecting to the AI.' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: `Sorry something went wrong. ${err.message}` }]);
     }
     setIsLoading(false);
   };
@@ -74,7 +81,7 @@ const Chatbot = () => {
           
           <div style={{ flex: 1, padding: '16px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {messages.map((m, i) => (
-              <div key={i} style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '85%', background: m.role === 'user' ? 'var(--color-accent-primary)' : 'var(--color-bg-secondary)', color: m.role === 'user' ? 'var(--color-bg-primary)' : 'var(--color-text-primary)', padding: '12px 16px', borderRadius: '12px', borderBottomRightRadius: m.role === 'user' ? '4px' : '12px', borderBottomLeftRadius: m.role === 'bot' ? '4px' : '12px', fontSize: '14px', lineHeight: 1.5 }}>
+              <div key={i} style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '85%', background: m.role === 'user' ? 'var(--color-accent-primary)' : 'var(--color-bg-secondary)', color: m.role === 'user' ? 'var(--color-bg-primary)' : 'var(--color-text-primary)', padding: '12px 16px', borderRadius: '12px', borderBottomRightRadius: m.role === 'user' ? '4px' : '12px', borderBottomLeftRadius: m.role === 'assistant' ? '4px' : '12px', fontSize: '14px', lineHeight: 1.5 }}>
                 {m.content}
               </div>
             ))}
