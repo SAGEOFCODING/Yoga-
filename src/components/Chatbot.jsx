@@ -31,15 +31,15 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true'
+          "Content-Type": "application/json",
+          "anthropic-version": "2023-06-01",
+          "anthropic-dangerous-direct-browser-access": "true"
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: "claude-sonnet-4-20250514",
           max_tokens: 500,
           system: "You are a helpful assistant for the Locked-Gate Therapy app. Answer questions about the app features: bio assessment, RFM body composition scoring, weekly exercise protocols, nutrition meal plans, meditation timer, sleep and weight tracking. Also answer basic health questions about body fat, stress management, mental wellness, metabolism, and fitness. Keep answers concise, warm and supportive. Never diagnose medical conditions.",
           messages: updatedHistory

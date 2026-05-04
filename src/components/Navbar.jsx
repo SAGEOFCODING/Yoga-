@@ -51,33 +51,12 @@ const Navbar = () => {
         </span>
       </div>
 
-      {isAssessed ? (
+      {isAssessed && (
         <div style={{ display: 'flex', gap: '32px', height: '64px' }}>
           <NavLink page="dashboard" label="Dashboard" />
           <NavLink page="meditation" label="Meditation" />
           <NavLink page="nutrition" label="Nutrition" />
           <NavLink page="exercise" label="Exercise" />
-        </div>
-      ) : (
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'center', fontWeight: 500, fontSize: '14px' }}>
-          <a 
-            href="#" 
-            style={{ cursor: 'pointer', color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color 0.15s ease' }} 
-            onMouseOver={(e) => { e.target.style.color = 'var(--color-text-primary)'; }}
-            onMouseOut={(e) => { e.target.style.color = 'var(--color-text-secondary)'; }}
-            onClick={(e) => { e.preventDefault(); scrollToSection('specs-container'); }}
-          >
-            Science
-          </a>
-          <a 
-            href="#" 
-            style={{ cursor: 'pointer', color: 'var(--color-text-secondary)', textDecoration: 'none', transition: 'color 0.15s ease' }} 
-            onMouseOver={(e) => { e.target.style.color = 'var(--color-text-primary)'; }}
-            onMouseOut={(e) => { e.target.style.color = 'var(--color-text-secondary)'; }}
-            onClick={(e) => { e.preventDefault(); scrollToSection('therapy-section'); }}
-          >
-            Protocol
-          </a>
         </div>
       )}
 
