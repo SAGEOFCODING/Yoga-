@@ -186,7 +186,7 @@ const WeeklySchedule = ({ onCompletionChange }) => {
         </div>
         <div style={{ background: 'var(--color-bg-elevated)', borderRadius: '12px', padding: '4px', display: 'flex', border: '1px solid var(--color-border)', width: '200px' }}>
           {['daily','weekly'].map(mode => (
-            <button key={mode} onClick={() => setViewMode(mode)} style={{ flex: 1, padding: '8px 0', textAlign: 'center', fontSize: '13px', border: 'none', fontWeight: viewMode === mode ? 600 : 500, color: viewMode === mode ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)', background: viewMode === mode ? 'var(--color-accent-primary)' : 'transparent', borderRadius: '9px', transition: 'all 0.2s ease', cursor: 'pointer', textTransform: 'capitalize', boxShadow: viewMode === mode ? '0 2px 8px rgba(0,0,0,0.25)' : 'none' }}>
+            <button key={mode} onClick={() => setViewMode(mode)} style={{ flex: 1, padding: '8px 0', textAlign: 'center', fontSize: '13px', border: 'none', fontWeight: viewMode === mode ? 600 : 500, color: viewMode === mode ? '#FFFFFF' : 'var(--color-text-tertiary)', background: viewMode === mode ? 'var(--color-accent-primary)' : 'transparent', borderRadius: '9px', transition: 'all 0.2s ease', cursor: 'pointer', textTransform: 'capitalize', boxShadow: viewMode === mode ? '0 2px 8px rgba(0,0,0,0.25)' : 'none' }}>
               {mode}
             </button>
           ))}

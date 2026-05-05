@@ -20,7 +20,7 @@ const SegmentedControl = ({ options, value, onChange }) => (
           style={{
             flex: 1, padding: '10px 0', textAlign: 'center', fontSize: '14px', border: 'none',
             fontWeight: isActive ? 600 : 500,
-            color: isActive ? 'var(--color-accent-light)' : 'var(--color-text-tertiary)',
+            color: isActive ? '#FFFFFF' : 'var(--color-text-tertiary)',
             background: isActive ? 'var(--color-accent-primary)' : 'transparent',
             borderRadius: '9px', transition: 'all 0.2s ease', cursor: 'pointer',
             boxShadow: isActive ? '0 2px 8px rgba(0,0,0,0.25)' : 'none'
@@ -133,7 +133,7 @@ const AssessmentForm = () => {
                 width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 8px',
                 background: isCompleted ? 'var(--color-accent-primary)' : isActive ? 'var(--color-accent-bright)' : 'var(--color-bg-elevated)',
                 border: isInactive ? '1px solid var(--color-border)' : 'none',
-                color: isCompleted ? '#fff' : isActive ? '#fff' : 'var(--color-text-tertiary)',
+                color: isCompleted ? '#FFFFFF' : isActive ? '#FFFFFF' : 'var(--color-text-tertiary)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.3s ease',
                 boxShadow: isActive ? '0 0 0 5px rgba(122, 143, 92, 0.18)' : 'none'
