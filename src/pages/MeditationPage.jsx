@@ -228,7 +228,7 @@ const MeditationPage = () => {
 
   return (
     <div className="container" style={{ paddingTop: '120px', paddingBottom: '100px', maxWidth: '800px', margin: '0 auto' }}>
-      <div style={{ background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '24px', padding: '48px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', display: 'flex', gap: '48px', alignItems: 'center' }}>
+      <div style={{ background: 'var(--color-bg-secondary)', border: '2px solid var(--color-accent-lavender)', borderRadius: '24px', padding: '48px', boxShadow: '0 8px 32px rgba(201, 182, 255, 0.15)', display: 'flex', gap: '48px', alignItems: 'center' }}>
         
         {/* Left column: controls */}
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -243,8 +243,8 @@ const MeditationPage = () => {
                 <button key={t.id} onClick={() => handleSoundChange(t.id)} style={{
                   flex: 1, padding: '12px 4px', borderRadius: '12px', cursor: 'pointer',
                   fontSize: '12px', fontWeight: soundTheme === t.id ? 600 : 500, transition: 'all 0.2s ease',
-                  background: soundTheme === t.id ? 'var(--color-accent-meditation)' : 'var(--color-bg-elevated)',
-                  color: soundTheme === t.id ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
+                  background: soundTheme === t.id ? 'var(--color-accent-purple)' : 'var(--color-bg-elevated)',
+                  color: soundTheme === t.id ? '#FFFFFF' : 'var(--color-text-tertiary)',
                   border: soundTheme === t.id ? 'none' : '1px solid var(--color-border)',
                   display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px'
                 }}>

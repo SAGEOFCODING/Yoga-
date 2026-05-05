@@ -37,7 +37,7 @@ const LandingPage = ({ onStart }) => {
               }}
             >
               <Fingerprint size={16} />
-              Precision Bio-Correction Protocol v2.0
+              Precision Bio-Correction Protocol v3.0
             </motion.div>
 
             <h1 style={{ fontSize: isMobile ? '48px' : '80px', lineHeight: 0.95, marginBottom: '32px', letterSpacing: '-2px', color: 'var(--color-text-primary)', fontWeight: 800 }}>

@@ -97,7 +97,7 @@ const FDANutrientLabel = ({ meal }) => {
                 <div style={{ fontSize:'13px', color:'var(--color-text-secondary)' }}>Amount per serving</div>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginTop:'4px' }}>
                   <span style={{ fontSize:'18px', fontWeight:700, color:'var(--color-text-primary)' }}>Calories</span>
-                  <span style={{ fontSize:'42px', fontWeight:900, color:'var(--color-accent-meals)', lineHeight:1 }}>{meal.calories}</span>
+                  <span style={{ fontSize:'42px', fontWeight:900, color:'var(--color-text-primary)', lineHeight:1 }}>{meal.calories}</span>
                 </div>
               </div>
               <div style={{ textAlign:'right', fontSize:'12px', color:'var(--color-text-tertiary)', borderBottom:'1px solid var(--color-separator)', padding:'4px 0' }}>% Daily Value*</div>
@@ -127,11 +127,11 @@ const RecipeCard = ({ meal }) => {
   const [showIngredients, setShowIngredients] = useState(false);
   
   return (
-    <div style={{ background:'var(--color-bg-secondary)', border:'1px solid var(--color-border)', borderRadius:'20px', padding:'24px', boxShadow:'0 8px 32px rgba(0,0,0,0.3)' }}>
+    <div style={{ background:'var(--color-bg-secondary)', border:'1px solid var(--color-border)', borderRadius:'20px', padding:'24px', boxShadow:'0 4px 20px rgba(0,0,0,0.04)' }}>
       <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'16px' }}>
         <div style={{ display:'flex', alignItems:'center', gap:'8px' }}>
-          <span style={{ fontSize:'13px', color:'var(--color-accent-bright)', fontWeight:600 }}>{meal.time}</span>
-          <span style={{ fontSize:'11px', padding:'2px 6px', borderRadius:'4px', background:'rgba(16,185,129,0.15)', color:'var(--color-success)', textTransform:'uppercase', fontWeight:600 }}>{meal.type}</span>
+          <span style={{ fontSize:'13px', color:'var(--color-accent-purple)', fontWeight:700 }}>{meal.time}</span>
+          <span style={{ fontSize:'11px', padding:'2px 8px', borderRadius:'4px', background:'var(--color-accent-pink)', color:'var(--color-text-primary)', textTransform:'uppercase', fontWeight:700 }}>{meal.type}</span>
         </div>
         <span style={{ fontSize:'13px', color:'var(--color-text-secondary)', fontWeight:500 }}>{meal.calories} KCAL</span>
       </div>
@@ -139,7 +139,7 @@ const RecipeCard = ({ meal }) => {
       <FDANutrientLabel meal={meal} />
       
       <div style={{ marginTop:'16px', paddingTop:'16px', borderTop:'1px solid var(--color-separator)' }}>
-        <button onClick={() => setShowIngredients(!showIngredients)} style={{ width: '100%', background:'var(--color-accent-meals)', border:'none', color:'#FFFFFF', fontSize:'14px', fontWeight:600, padding:'12px', borderRadius:'12px', cursor: 'pointer' }}>
+        <button onClick={() => setShowIngredients(!showIngredients)} style={{ width: '100%', background:'var(--color-accent-quaternary)', border:'none', color:'#FFFFFF', fontSize:'14px', fontWeight:600, padding:'12px', borderRadius:'12px', cursor: 'pointer', boxShadow: '0 4px 12px rgba(208, 140, 96, 0.2)' }}>
           🍲 {showIngredients ? 'Hide Ingredients' : 'View Ingredients'}
         </button>
       </div>
@@ -148,8 +148,9 @@ const RecipeCard = ({ meal }) => {
         {showIngredients && (
           <motion.div initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:'auto' }} exit={{ opacity:0, height:0 }} style={{ overflow:'hidden' }}>
             <div style={{ marginTop:'12px', background:'var(--color-bg-elevated)', borderRadius:'12px', padding:'16px' }}>
-              <p style={{ fontSize:'12px', color:'var(--color-text-tertiary)', textTransform:'uppercase', letterSpacing:'0.5px', fontWeight:600, marginBottom:'10px' }}>Ingredients (1 serving)</p>
-              <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'6px' }}>
+            <div style={{ marginTop:'16px', background:'var(--color-bg-elevated)', borderRadius:'16px', padding:'16px', border:'1px solid var(--color-border)' }}>
+              <p style={{ fontSize:'12px', color:'var(--color-text-tertiary)', textTransform:'uppercase', letterSpacing:'0.5px', fontWeight:600, marginBottom:'12px' }}>Ingredients (1 serving)</p>
+              <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'8px' }}>
                 {meal.ingredients?.map((ing, i) => (
                   <li key={i} style={{ display:'flex', alignItems:'flex-start', gap:'8px', fontSize:'14px', color:'var(--color-text-secondary)' }}>
                     <span style={{ color:'var(--color-accent-meals)', marginTop:'4px' }}>•</span>
@@ -157,6 +158,10 @@ const RecipeCard = ({ meal }) => {
                   </li>
                 ))}
               </ul>
+              <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: 'var(--color-accent-meals)', fontWeight: 600 }}>
+                <Fingerprint size={16} />
+                Precision Bio-Correction Protocol v3.0
+              </div>
             </div>
           </motion.div>
         )}
@@ -174,9 +179,9 @@ const FoodProtocol = () => {
           <h3 className="page-heading" style={{ marginBottom:'8px' }}>Molecular Nutrition</h3>
           <p style={{ color:'var(--color-text-secondary)', fontSize:'15px' }}>4-Meal Daily Protocol (Pure Vegetarian Options)</p>
         </div>
-        <div style={{ background:'var(--color-bg-elevated)', borderRadius:'12px', padding:'4px', display:'flex', border:'1px solid var(--color-border)', width:'280px' }}>
+        <div style={{ background:'var(--color-bg-secondary)', borderRadius:'12px', padding:'4px', display:'flex', border:'2px solid var(--color-accent-brown)', width:'280px' }}>
           {[0,1,2].map(idx => (
-            <button key={idx} onClick={() => setActiveDay(idx)} style={{ flex:1, padding:'10px 16px', textAlign:'center', fontSize:'14px', border:'none', fontWeight: activeDay===idx ? 600 : 500, color: activeDay===idx ? '#FFFFFF' : 'var(--color-text-tertiary)', background: activeDay===idx ? 'var(--color-accent-meals)' : 'transparent', borderRadius:'9px', transition:'all 0.2s ease', cursor:'pointer', boxShadow: activeDay===idx ? '0 2px 8px rgba(0,0,0,0.25)' : 'none' }}>
+            <button key={idx} onClick={() => setActiveDay(idx)} style={{ flex:1, padding:'10px 16px', textAlign:'center', fontSize:'14px', border:'none', fontWeight: activeDay===idx ? 600 : 500, color: activeDay===idx ? '#FFFFFF' : 'var(--color-text-tertiary)', background: activeDay===idx ? 'var(--color-accent-quaternary)' : 'transparent', borderRadius:'9px', transition:'all 0.2s ease', cursor:'pointer', boxShadow: activeDay===idx ? '0 2px 8px rgba(208, 140, 96, 0.25)' : 'none' }}>
               DAY {idx+1}
             </button>
           ))}

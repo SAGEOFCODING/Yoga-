@@ -126,7 +126,7 @@ const ExerciseRow = ({ session, isCompleted, onToggle }) => {
             <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--color-text-tertiary)', lineHeight: 1.5 }}>{session.desc}</p>
           </div>
         </div>
-        <button onClick={() => setShowVideo(!showVideo)} style={{ background: 'rgba(122, 143, 92, 0.1)', border: 'none', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-accent-primary)', fontSize: '12px', fontWeight: 600, padding: '8px 12px', borderRadius: '8px', flexShrink: 0, cursor: 'pointer' }}>
+        <button onClick={() => setShowVideo(!showVideo)} style={{ background: 'var(--color-accent-lavender)', border: 'none', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-text-primary)', fontSize: '12px', fontWeight: 700, padding: '8px 12px', borderRadius: '8px', flexShrink: 0, cursor: 'pointer', boxShadow: '0 2px 8px rgba(201, 182, 255, 0.3)' }}>
           <PlayCircle size={16} /> {showVideo ? 'Hide' : 'Tutorial'}
         </button>
       </div>
@@ -184,9 +184,9 @@ const WeeklySchedule = ({ onCompletionChange }) => {
             {viewMode === 'daily' && dayTotal > 0 ? ` · ${dayCompleted} / ${dayTotal} completed` : ''}
           </p>
         </div>
-        <div style={{ background: 'var(--color-bg-elevated)', borderRadius: '12px', padding: '4px', display: 'flex', border: '1px solid var(--color-border)', width: '200px' }}>
+        <div style={{ background: 'var(--color-bg-secondary)', borderRadius: '12px', padding: '4px', display: 'flex', border: '2px solid var(--color-accent-brown)', width: '200px' }}>
           {['daily','weekly'].map(mode => (
-            <button key={mode} onClick={() => setViewMode(mode)} style={{ flex: 1, padding: '8px 0', textAlign: 'center', fontSize: '13px', border: 'none', fontWeight: viewMode === mode ? 600 : 500, color: viewMode === mode ? '#FFFFFF' : 'var(--color-text-tertiary)', background: viewMode === mode ? 'var(--color-accent-primary)' : 'transparent', borderRadius: '9px', transition: 'all 0.2s ease', cursor: 'pointer', textTransform: 'capitalize', boxShadow: viewMode === mode ? '0 2px 8px rgba(0,0,0,0.25)' : 'none' }}>
+            <button key={mode} onClick={() => setViewMode(mode)} style={{ flex: 1, padding: '8px 0', textAlign: 'center', fontSize: '13px', border: 'none', fontWeight: viewMode === mode ? 600 : 500, color: viewMode === mode ? '#FFFFFF' : 'var(--color-text-tertiary)', background: viewMode === mode ? 'var(--color-accent-purple)' : 'transparent', borderRadius: '9px', transition: 'all 0.2s ease', cursor: 'pointer', textTransform: 'capitalize', boxShadow: viewMode === mode ? '0 2px 8px rgba(157, 133, 255, 0.25)' : 'none' }}>
               {mode}
             </button>
           ))}
@@ -198,10 +198,12 @@ const WeeklySchedule = ({ onCompletionChange }) => {
           <div style={{ overflowX: 'auto', display: 'flex', gap: '8px', paddingBottom: '16px', marginBottom: '16px', scrollbarWidth: 'none' }}>
             {days.map((d, i) => {
               const isActive = selectedDay === d;
+              const accentColor = isActive ? 'var(--color-accent-pink)' : 'var(--color-bg-secondary)';
+              const borderColor = isActive ? 'var(--color-accent-pink)' : 'var(--color-border)';
               return (
-                <button key={d} onClick={() => setSelectedDay(d)} style={{ flexShrink: 0, background: isActive ? 'var(--color-accent-primary)' : 'var(--color-bg-elevated)', border: isActive ? 'none' : '1px solid var(--color-border)', borderRadius: '24px', padding: '8px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', transition: 'all 0.2s ease', minWidth: '70px' }}>
-                  <span style={{ fontSize: '10px', color: isActive ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)' }}>{d}</span>
-                  <span style={{ fontSize: '16px', fontWeight: 'bold', color: isActive ? '#ffffff' : 'var(--color-text-primary)' }}>{i + 1}</span>
+                <button key={d} onClick={() => setSelectedDay(d)} style={{ flexShrink: 0, background: accentColor, border: `2px solid ${borderColor}`, borderRadius: '24px', padding: '8px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', transition: 'all 0.2s ease', minWidth: '70px', boxShadow: isActive ? '0 4px 12px rgba(250, 218, 221, 0.4)' : 'none' }}>
+                  <span style={{ fontSize: '10px', color: isActive ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)' }}>{d}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>{i + 1}</span>
                 </button>
               );
             })}
