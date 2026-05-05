@@ -66,8 +66,8 @@ const AuthPage = () => {
       }}>
         {/* Logo */}
         <div style={{ fontSize: '28px', fontWeight: 800, letterSpacing: '-0.5px', marginBottom: '48px' }}>
-          <span style={{ color: 'var(--color-text-primary)' }}>LOCKED</span>
-          <span style={{ color: 'var(--color-accent-primary)' }}>GATE</span>
+          <span style={{ color: '#FAF8F4' }}>LOCKED</span>
+          <span style={{ color: '#BFD8B8' }}>GATE</span>
         </div>
 
         {/* Headline */}
@@ -104,13 +104,13 @@ const AuthPage = () => {
           }}>
             <div style={{
               width: '16px', height: '18px',
-              border: '2px solid var(--color-accent-primary)',
+              border: '2px solid #BFD8B8',
               borderRadius: '4px 4px 8px 8px'
             }} />
           </div>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-text-primary)' }}>RFM Body Analysis</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-text-tertiary)' }}>Science-backed fat measurement beyond BMI.</div>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: '#FAF8F4' }}>RFM Body Analysis</div>
+            <div style={{ fontSize: '13px', color: '#E8E3DA' }}>Science-backed fat measurement beyond BMI.</div>
           </div>
         </div>
 
@@ -122,11 +122,11 @@ const AuthPage = () => {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0
           }}>
-            <Zap size={16} color="var(--color-accent-primary)" />
+            <Zap size={16} color="#BFD8B8" />
           </div>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-text-primary)' }}>AI Exercise Protocol</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-text-tertiary)' }}>Personalized weekly plans for your fitness level.</div>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: '#FAF8F4' }}>AI Exercise Protocol</div>
+            <div style={{ fontSize: '13px', color: '#E8E3DA' }}>Personalized weekly plans for your fitness level.</div>
           </div>
         </div>
 
@@ -138,11 +138,11 @@ const AuthPage = () => {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0
           }}>
-            <Leaf size={16} color="var(--color-accent-primary)" />
+            <Leaf size={16} color="#BFD8B8" />
           </div>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-text-primary)' }}>Molecular Nutrition</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-text-tertiary)' }}>Low-GI Indian meal plans with full macro tracking.</div>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: '#FAF8F4' }}>Molecular Nutrition</div>
+            <div style={{ fontSize: '13px', color: '#E8E3DA' }}>Low-GI Indian meal plans with full macro tracking.</div>
           </div>
         </div>
 
@@ -152,7 +152,7 @@ const AuthPage = () => {
             width: '6px', height: '6px', borderRadius: '50%',
             background: 'var(--color-success)', flexShrink: 0
           }} />
-          <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Trusted by 10,000+ users across India</span>
+          <span style={{ fontSize: '12px', color: '#E8E3DA' }}>Trusted by 10,000+ users across India</span>
         </div>
       </div>
 
