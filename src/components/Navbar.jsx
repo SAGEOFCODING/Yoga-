@@ -30,15 +30,15 @@ const Navbar = () => {
       borderBottom: '1px solid var(--color-border)',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center'
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={reset}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={reset}>
         <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '20px', letterSpacing: '-0.5px' }}>
           <span style={{ color: 'var(--color-text-primary)' }}>Soul</span>
-          <span style={{ color: 'var(--color-lavender)' }}>Fit</span>
+          <span style={{ color: 'var(--color-accent-primary)' }}>Fit</span>
         </span>
       </div>
 
       {isAssessed && (
-        <div style={{ display: 'flex', gap: '32px', height: '64px' }}>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '32px', height: '64px' }}>
           <NavLink page="dashboard" label="Dashboard" />
           <NavLink page="meditation" label="Meditation" />
           <NavLink page="nutrition" label="Nutrition" />
@@ -46,7 +46,7 @@ const Navbar = () => {
         </div>
       )}
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '12px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-bg-elevated)', border: '1px solid var(--color-border)', borderRadius: '100px', padding: '6px 14px 6px 6px' }}>
           <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--color-accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 900, color: 'var(--color-text-primary)' }}>
             {currentUser?.name?.charAt(0).toUpperCase()}
