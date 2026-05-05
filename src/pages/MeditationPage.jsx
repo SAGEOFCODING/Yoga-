@@ -233,7 +233,7 @@ const MeditationPage = () => {
         {/* Left column: controls */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <h4 style={{ color: 'var(--color-text-primary)', fontSize: '24px', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
-            <Timer size={28} color="var(--color-accent-meditation)" /> Meditation Timer
+            <Timer size={28} color="var(--color-emerald)" /> Meditation Timer
           </h4>
           
           <div style={{ marginBottom: '24px' }}>
@@ -260,9 +260,10 @@ const MeditationPage = () => {
               <button key={d} onClick={() => handleDurationChange(d)} style={{
                 flex: 1, padding: '12px 0', border: 'none', borderRadius: '12px', cursor: 'pointer',
                 fontSize: '14px', fontWeight: selectedMin === d ? 600 : 500, transition: 'all 0.2s ease',
-                background: selectedMin === d ? 'var(--color-accent-meditation)' : 'transparent',
-                color: selectedMin === d ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
-                boxShadow: selectedMin === d ? '0 2px 8px rgba(0,0,0,0.25)' : 'none'
+                background: selectedMin === d ? 'var(--color-emerald)' : 'transparent',
+                color: selectedMin === d ? '#FFFFFF' : 'var(--color-text-tertiary)',
+                fontWeight: selectedMin === d ? 700 : 500,
+                boxShadow: selectedMin === d ? '0 4px 12px rgba(16, 185, 129, 0.25)' : 'none'
               }}>
                 {d} min
               </button>
@@ -272,7 +273,7 @@ const MeditationPage = () => {
           <div style={{ display: 'flex', gap: '16px' }}>
             <button onClick={handleToggle} disabled={isComplete} style={{
               flex: 2,
-              background: 'var(--color-accent-primary)', color: 'var(--color-bg-primary)', border: 'none',
+              background: 'var(--color-emerald)', color: '#FFFFFF', border: 'none',
               borderRadius: '12px', padding: '16px 24px', fontWeight: 700, fontSize: '16px', cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', transition: 'all 0.2s ease',
               opacity: isComplete ? 0.5 : 1
@@ -293,14 +294,14 @@ const MeditationPage = () => {
         {/* Right column: countdown ring */}
         <div style={{ position: 'relative', width: '200px', height: '200px', flexShrink: 0 }}>
           <svg width="200" height="200" style={{ transform: 'rotate(-90deg)' }}>
-            <circle cx="100" cy="100" r={ringRadius} fill="transparent" stroke="rgba(255,255,255,0.06)" strokeWidth="12" />
-            <circle cx="100" cy="100" r={ringRadius} fill="transparent" stroke="var(--color-accent-meditation)" strokeWidth="12" strokeDasharray={ringCircum} strokeDashoffset={ringOffset} strokeLinecap="round" style={{ transition: 'stroke-dashoffset 0.5s ease' }} />
+            <circle cx="100" cy="100" r={ringRadius} fill="transparent" stroke="rgba(16, 185, 129, 0.1)" strokeWidth="12" />
+            <circle cx="100" cy="100" r={ringRadius} fill="transparent" stroke="var(--color-emerald)" strokeWidth="12" strokeDasharray={ringCircum} strokeDashoffset={ringOffset} strokeLinecap="round" style={{ transition: 'stroke-dashoffset 0.5s ease' }} />
           </svg>
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
             {isComplete ? (
               <div style={{ color: 'var(--color-success)', fontSize: '18px', fontWeight: 600 }}>Done ✓</div>
             ) : (
-              <div style={{ fontSize: '48px', fontWeight: 700, color: 'var(--color-accent-light)', letterSpacing: '-2px', fontVariantNumeric: 'tabular-nums' }}>
+              <div style={{ fontSize: '48px', fontWeight: 800, color: 'var(--color-emerald)', letterSpacing: '-2px', fontVariantNumeric: 'tabular-nums' }}>
                 {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
               </div>
             )}
