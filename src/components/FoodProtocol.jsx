@@ -147,18 +147,17 @@ const RecipeCard = ({ meal }) => {
       <AnimatePresence>
         {showIngredients && (
           <motion.div initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:'auto' }} exit={{ opacity:0, height:0 }} style={{ overflow:'hidden' }}>
-            <div style={{ marginTop:'12px', background:'var(--color-bg-elevated)', borderRadius:'12px', padding:'16px' }}>
             <div style={{ marginTop:'16px', background:'var(--color-bg-elevated)', borderRadius:'16px', padding:'16px', border:'1px solid var(--color-border)' }}>
               <p style={{ fontSize:'12px', color:'var(--color-text-tertiary)', textTransform:'uppercase', letterSpacing:'0.5px', fontWeight:600, marginBottom:'12px' }}>Ingredients (1 serving)</p>
               <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'8px' }}>
                 {meal.ingredients?.map((ing, i) => (
                   <li key={i} style={{ display:'flex', alignItems:'flex-start', gap:'8px', fontSize:'14px', color:'var(--color-text-secondary)' }}>
-                    <span style={{ color:'var(--color-accent-meals)', marginTop:'4px' }}>•</span>
+                    <span style={{ color:'var(--color-emerald)', marginTop:'4px' }}>•</span>
                     {ing}
                   </li>
                 ))}
               </ul>
-              <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: 'var(--color-accent-meals)', fontWeight: 600 }}>
+              <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: 'var(--color-emerald)', fontWeight: 600 }}>
                 <Fingerprint size={16} />
                 Precision Bio-Correction Protocol v3.0
               </div>

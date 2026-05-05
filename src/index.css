@@ -1,44 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --color-bg-primary: #FAFAF5;
+  --color-bg-primary: #F8FAFC;
   --color-bg-secondary: #FFFFFF;
-  --color-bg-elevated: #F4F4EF;
-  --color-bg-glass: rgba(250, 250, 245, 0.92);
+  --color-bg-elevated: #F1F5F9;
+  --color-bg-glass: rgba(248, 250, 252, 0.9);
 
-  /* Core Palette */
-  --color-accent-lime: #C7E96A;
-  --color-accent-lavender: #C9B6FF;
-  --color-accent-pink: #FADADD;
-  --color-accent-brown: #D08C60;
-  --color-accent-purple: #9D85FF;
+  /* Modern Fitness Core */
+  --color-emerald: #10B981;
+  --color-teal: #0F766E;
+  --color-lime: #D9F99D;
+  --color-slate: #1E293B;
+  --color-slate-light: #64748B;
   
   /* Brand Mapping */
-  --color-accent-primary: #C7E96A;
-  --color-accent-secondary: #C9B6FF;
-  --color-accent-tertiary: #FADADD;
-  --color-accent-quaternary: #D08C60;
+  --color-accent-primary: #10B981;
+  --color-accent-secondary: #0F766E;
+  --color-accent-tertiary: #D9F99D;
+  --color-accent-quaternary: #0F766E;
 
-  /* Section-specific Accents */
-  --color-accent-exercise: #C7E96A;
-  --color-accent-meals: #D08C60;
-  --color-accent-meditation: #C9B6FF;
-  --color-accent-dashboard: #FADADD;
+  /* Section Mapping */
+  --color-accent-exercise: #10B981;
+  --color-accent-meals: #0F766E;
+  --color-accent-meditation: #D9F99D;
+  --color-accent-dashboard: #10B981;
 
-  --color-success: #C7E96A;
-  --color-warning: #D08C60;
-  --color-danger: #F87171;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
 
-  --color-text-primary: #1F1F1F;
-  --color-text-secondary: #4B5563;
-  --color-text-tertiary: #6B7280;
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94A3B8;
 
-  --color-border: #E5E7EB;
-  --color-border-active: #C7E96A;
-  --color-separator: #ECE9E2;
+  --color-border: #E2E8F0;
+  --color-border-active: #10B981;
+  --color-separator: #F1F5F9;
 
-  --font-main: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
+  --font-main: 'Inter', -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  
+  /* Startup Style Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(16, 185, 129, 0.1);
+  --radius-lg: 20px;
+  --radius-md: 12px;
 }
 
 * {
@@ -105,11 +112,17 @@ h1, h2, h3, h4 {
 }
 
 .glass-card-full {
-  background: var(--color-bg-secondary);
+  background: var(--color-bg-primary);
   border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.glass-card-full:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .input-group {
@@ -145,7 +158,7 @@ h1, h2, h3, h4 {
 
 .input-group input:focus, .input-group select:focus {
   border-color: var(--color-border-active);
-  box-shadow: 0 0 0 3px rgba(199, 233, 106, 0.15);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -155,32 +168,32 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn-primary {
-  background: var(--color-accent-primary);
-  color: var(--color-text-primary);
+  background: linear-gradient(135deg, var(--color-emerald) 0%, #059669 100%);
+  color: #FFFFFF;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.4px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 14px 28px;
   height: 52px;
   border: none;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
 }
 
 .btn-primary:hover {
-  background: var(--color-accent-deep);
-  color: var(--color-text-primary);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(199, 233, 106, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  filter: brightness(1.1);
 }
 
 .btn-primary:active {
-  transform: scale(0.98);
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-outline {

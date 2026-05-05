@@ -27,9 +27,9 @@ const DashboardPage = () => {
   } else {
     const deficit = healthyMin - rfmVal;
     ringFill = Math.min(100, (deficit / 10) * 100);
-    ringColor = 'var(--color-accent-bright)';
+    ringColor = 'var(--color-accent-lavender)';
     statusText = `${deficit.toFixed(1)}% below healthy minimum`;
-    statusColor = 'var(--color-accent-bright)';
+    statusColor = 'var(--color-accent-lavender)';
   }
 
   const radius = 70;
@@ -64,8 +64,8 @@ const DashboardPage = () => {
   return (
     <div className="container" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
       {/* ═══ HEADER: Quote of the Day ═══ */}
-      <div style={{ background: 'var(--color-bg-secondary)', border: '2px solid var(--color-accent-lavender)', borderRadius: '16px', padding: '28px 32px', textAlign: 'center', marginBottom: '48px', boxShadow: '0 4px 20px rgba(201, 182, 255, 0.15)' }}>
-        <h4 style={{ color: 'var(--color-accent-purple)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '12px', fontWeight: 600 }}>Daily Wisdom</h4>
+      <div style={{ background: 'var(--color-bg-secondary)', border: '2px solid var(--color-emerald)', borderRadius: 'var(--radius-md)', padding: '28px 32px', textAlign: 'center', marginBottom: '48px', boxShadow: 'var(--shadow-md)' }}>
+        <h4 style={{ color: 'var(--color-emerald)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '12px', fontWeight: 600 }}>Daily Bio-Correction Wisdom</h4>
         <p style={{ fontSize: '22px', color: 'var(--color-text-primary)', fontStyle: 'italic', fontWeight: 500, lineHeight: 1.5 }}>"{quoteOfDay}"</p>
       </div>
 
@@ -78,15 +78,15 @@ const DashboardPage = () => {
             if (tip.icon === 'Wind') IconComponent = Wind;
             if (tip.icon === 'Zap') IconComponent = Zap;
 
-            const accentColors = ['var(--color-accent-lime)', 'var(--color-accent-pink)', 'var(--color-accent-purple)'];
-            const textAccents = ['var(--color-accent-brown)', 'var(--color-accent-quaternary)', 'var(--color-accent-lavender)'];
+            const accentColors = ['var(--color-emerald)', 'var(--color-teal)', 'var(--color-lime)'];
+            const textAccents = ['var(--color-teal)', 'var(--color-emerald)', 'var(--color-teal)'];
             const currentAccent = accentColors[i % 3];
 
             return (
-              <div key={i} className="glass-card-full" style={{ padding: '20px', borderLeft: `4px solid ${currentAccent}` }}>
+              <div key={i} className="glass-card-full" style={{ padding: '24px', borderLeft: `6px solid ${currentAccent}`, borderRadius: '16px' }}>
                 <IconComponent size={20} color={currentAccent} />
-                <h5 style={{ color: textAccents[i % 3], fontSize: '14px', marginBottom: '8px', marginTop: '10px' }}>{tip.title}</h5>
-                <p style={{ color: 'var(--color-text-primary)', fontWeight: 500, fontSize: '13px', lineHeight: 1.6 }}>{tip.body}</p>
+                <h5 style={{ color: textAccents[i % 3], fontSize: '15px', marginBottom: '8px', marginTop: '10px', fontWeight: 700 }}>{tip.title}</h5>
+                <p style={{ color: 'var(--color-text-secondary)', fontWeight: 500, fontSize: '13px', lineHeight: 1.6 }}>{tip.body}</p>
               </div>
             );
           })}
@@ -128,14 +128,14 @@ const DashboardPage = () => {
             </div>
           </div>
 
-          <div style={{ background: 'var(--color-bg-elevated)', border: '1px solid var(--color-accent-lavender)', borderRadius: '14px', padding: '16px', marginTop: '16px', textAlign: 'left' }}>
-            <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-accent-purple)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}><Info size={14} /> BMI vs RFM</h4>
+          <div style={{ background: 'var(--color-bg-elevated)', border: '1px solid var(--color-emerald)', borderRadius: '14px', padding: '16px', marginTop: '16px', textAlign: 'left' }}>
+            <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-teal)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}><Info size={14} /> BMI vs RFM</h4>
             <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
-              <strong style={{ color: 'var(--color-accent-brown)' }}>BMI</strong> only compares weight to height. <strong style={{ color: 'var(--color-accent-quaternary)' }}>RFM</strong> uses waist circumference to estimate actual body fat %, giving a far more accurate picture of metabolic health.
+              <strong style={{ color: 'var(--color-emerald)' }}>BMI</strong> only compares weight to height. <strong style={{ color: 'var(--color-teal)' }}>RFM</strong> uses waist circumference to estimate actual body fat %, giving a far more accurate picture of metabolic health.
             </p>
           </div>
 
-          <button className="btn-primary" onClick={reset} style={{ width: '100%', marginTop: '20px', background: 'var(--color-accent-lime)' }}>Re-scan Bio-markers</button>
+          <button className="btn-primary" onClick={reset} style={{ width: '100%', marginTop: '20px' }}>Re-scan Bio-markers</button>
         </motion.div>
       </div>
 

@@ -36,7 +36,7 @@ const LandingPage = ({ onStart }) => {
                 fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '32px'
               }}
             >
-              <Fingerprint size={16} />
+              <Fingerprint size={16} color="var(--color-emerald)" />
               Precision Bio-Correction Protocol v3.0
             </motion.div>
 
@@ -51,7 +51,7 @@ const LandingPage = ({ onStart }) => {
             </p>
 
             <div style={{ display: 'flex', gap: '16px' }}>
-              <button className="btn-primary" onClick={onStart} style={{ padding: '16px 32px', height: 'auto', borderRadius: '12px', fontSize: '16px' }}>
+              <button className="btn-primary" onClick={onStart} style={{ padding: '16px 32px', height: 'auto', borderRadius: '16px', fontSize: '18px', background: 'linear-gradient(135deg, var(--color-emerald) 0%, var(--color-teal) 100%)' }}>
                 Initialize Analysis <ArrowRight size={20} />
               </button>
               <button className="btn-outline" onClick={scrollToSpecs} style={{ padding: '16px 32px', height: 'auto', borderRadius: '12px', fontSize: '16px' }}>Protocol Specs</button>

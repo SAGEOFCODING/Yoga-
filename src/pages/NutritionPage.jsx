@@ -4,8 +4,8 @@ import FoodProtocol from '../components/FoodProtocol';
 import { Droplet } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const CARD = { background: 'var(--color-bg-secondary)', border: '2px solid var(--color-accent-brown)', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(208, 140, 96, 0.1)' };
-const PILL = (active) => ({ border: 'none', borderRadius: '8px', padding: '6px 10px', fontSize: '12px', fontWeight: 600, cursor: 'pointer', background: active ? 'var(--color-accent-purple)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : 'var(--color-text-primary)', transition: 'all 0.15s ease' });
+const CARD = { background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)' };
+const PILL = (active) => ({ border: 'none', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 600, cursor: 'pointer', background: active ? 'var(--color-emerald)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : 'var(--color-text-secondary)', transition: 'all 0.2s ease', boxShadow: active ? 'var(--shadow-sm)' : 'none' });
 
 const ProteinCard = ({ bodyComp }) => {
   const [consumed, setConsumed] = useState(0);
@@ -54,7 +54,7 @@ const FastingCard = () => {
   if (eatMins != null) {
     const hrs = eatMins / 60;
     if (hrs < 8) { rating = 'Excellent'; ratingColor = 'var(--color-success)'; }
-    else if (hrs <= 10) { rating = 'Good'; ratingColor = 'var(--color-accent-bright)'; }
+    else if (hrs <= 10) { rating = 'Good'; ratingColor = 'var(--color-accent-lime)'; }
     else if (hrs <= 12) { rating = 'Moderate'; ratingColor = 'var(--color-warning)'; }
     else { rating = 'Reduce eating window'; ratingColor = 'var(--color-danger)'; }
   }
@@ -149,8 +149,8 @@ const NutritionPage = () => {
                 key={i} onClick={() => setWater(i + 1)} 
                 style={{ 
                   cursor: 'pointer', flex: 1, aspectRatio: '1', borderRadius: '8px',
-                  background: i < water ? '#3b82f6' : 'var(--color-bg-elevated)',
-                  border: `1px solid ${i < water ? '#3b82f6' : 'var(--color-border)'}`,
+                  background: i < water ? 'var(--color-emerald)' : 'var(--color-bg-elevated)',
+                  border: `1px solid ${i < water ? 'var(--color-emerald)' : 'var(--color-border)'}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'all 0.2s ease'
                 }}

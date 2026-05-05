@@ -47,7 +47,7 @@ const Navbar = () => {
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={reset}>
         <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '20px', letterSpacing: '-0.5px' }}>
           <span style={{ color: 'var(--color-text-primary)' }}>LOCKED</span>
-          <span style={{ color: 'var(--color-accent-bright)' }}>GATE</span>
+          <span style={{ color: 'var(--color-emerald)' }}>GATE</span>
         </span>
       </div>
 

@@ -55,10 +55,10 @@ const TrainingPreferenceSelector = ({ value, onChange }) => {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-text-primary)', fontSize: '16px' }}>
-              <span style={{ color: 'var(--color-accent-bright)' }}>{opt.icon}</span>
+              <span style={{ color: 'var(--color-emerald)' }}>{opt.icon}</span>
               {opt.label}
             </div>
-            <div style={{ color: 'var(--color-accent-bright)', opacity: isActive ? 1 : 0, transition: 'opacity 0.15s ease' }}>
+            <div style={{ color: 'var(--color-emerald)', opacity: isActive ? 1 : 0, transition: 'opacity 0.15s ease' }}>
               <Check size={20} strokeWidth={3} />
             </div>
           </div>
@@ -131,12 +131,12 @@ const AssessmentForm = () => {
             <div key={s.id} style={{ zIndex: 1, textAlign: 'center', flex: 1 }}>
               <div style={{ 
                 width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 8px',
-                background: isCompleted ? 'var(--color-accent-primary)' : isActive ? 'var(--color-accent-bright)' : 'var(--color-bg-elevated)',
+                background: isCompleted ? 'var(--color-emerald)' : isActive ? 'var(--color-teal)' : 'var(--color-bg-elevated)',
                 border: isInactive ? '1px solid var(--color-border)' : 'none',
                 color: isCompleted ? '#FFFFFF' : isActive ? '#FFFFFF' : 'var(--color-text-tertiary)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.3s ease',
-                boxShadow: isActive ? '0 0 0 5px rgba(122, 143, 92, 0.18)' : 'none'
+                boxShadow: isActive ? '0 0 0 5px rgba(16, 185, 129, 0.1)' : 'none'
               }}>
                 {isCompleted ? <Check size={20} strokeWidth={3} /> : s.icon}
               </div>
@@ -277,7 +277,7 @@ const AssessmentForm = () => {
                       <div style={{ color: 'var(--color-text-primary)', fontSize: '15px' }}>
                         {item.label}
                       </div>
-                      <div style={{ color: 'var(--color-accent-bright)', opacity: isSelected ? 1 : 0, transition: 'opacity 0.15s ease' }}>
+                      <div style={{ color: 'var(--color-accent-pink)', opacity: isSelected ? 1 : 0, transition: 'opacity 0.15s ease' }}>
                         <Check size={20} strokeWidth={3} />
                       </div>
                     </div>
