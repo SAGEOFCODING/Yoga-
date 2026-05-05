@@ -57,7 +57,8 @@ const AuthPage = () => {
       {/* ═══ LEFT BRANDED PANEL ═══ */}
       <div style={{
         width: isMobile ? '100%' : '45%',
-        background: 'linear-gradient(135deg, var(--color-emerald) 0%, var(--color-teal) 100%)',
+        background: 'var(--color-lavender)',
+        borderRight: '4px solid #000000',
         padding: isMobile ? '40px 24px' : '60px',
         display: 'flex',
         flexDirection: 'column',
@@ -65,16 +66,16 @@ const AuthPage = () => {
         boxSizing: 'border-box'
       }}>
         {/* Logo */}
-        <div style={{ fontSize: '28px', fontWeight: 800, letterSpacing: '-0.5px', marginBottom: '48px' }}>
-          <span style={{ color: '#FAFAF5' }}>Soul</span>
-          <span style={{ color: '#DFF3B0' }}>Fit</span>
+        <div style={{ fontSize: '24px', fontWeight: 900, letterSpacing: '-0.5px', marginBottom: '48px' }}>
+          <span style={{ color: '#000000' }}>Soul</span>
+          <span style={{ color: '#000000', opacity: 0.5 }}>Fit</span>
         </div>
 
         {/* Headline */}
         <h1 style={{
           fontSize: isMobile ? '28px' : '42px',
-          fontWeight: 800,
-          color: '#FAFAF5',
+          fontWeight: 900,
+          color: '#000000',
           lineHeight: 1.1,
           marginBottom: '24px',
           margin: '0 0 24px 0'
@@ -85,8 +86,8 @@ const AuthPage = () => {
         {/* Subtitle */}
         <p style={{
           fontSize: '15px',
-          color: '#DFF3B0',
-          fontWeight: 500,
+          color: '#000000',
+          fontWeight: 700,
           lineHeight: 1.7,
           marginBottom: '48px'
         }}>
@@ -98,7 +99,8 @@ const AuthPage = () => {
         <div style={{ display: 'flex', gap: '14px', marginBottom: '20px', alignItems: 'center' }}>
           <div style={{
             width: '36px', height: '36px', borderRadius: '10px',
-            background: 'var(--color-teal)',
+            background: 'rgba(255, 255, 255, 0.15)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0
           }}>
@@ -109,8 +111,8 @@ const AuthPage = () => {
             }} />
           </div>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 700, color: '#FAFAF5' }}>RFM Body Analysis</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-bg-primary)' }}>Science-backed fat measurement beyond BMI.</div>
+            <div style={{ fontSize: '14px', fontWeight: 900, color: '#000000' }}>RFM Body Analysis</div>
+            <div style={{ fontSize: '13px', color: '#000000', fontWeight: 700 }}>Science-backed fat measurement beyond BMI.</div>
           </div>
         </div>
 
@@ -118,15 +120,16 @@ const AuthPage = () => {
         <div style={{ display: 'flex', gap: '14px', marginBottom: '20px', alignItems: 'center' }}>
           <div style={{
             width: '36px', height: '36px', borderRadius: '10px',
-            background: 'var(--color-emerald)',
+            background: 'rgba(255, 255, 255, 0.15)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0
           }}>
             <Zap size={16} color="var(--color-text-primary)" />
           </div>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 700, color: '#FAFAF5' }}>AI Exercise Protocol</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-bg-primary)' }}>Personalized weekly plans for your fitness level.</div>
+            <div style={{ fontSize: '14px', fontWeight: 900, color: '#000000' }}>AI Exercise Protocol</div>
+            <div style={{ fontSize: '13px', color: '#000000', fontWeight: 700 }}>Personalized weekly plans for your fitness level.</div>
           </div>
         </div>
 
@@ -134,15 +137,16 @@ const AuthPage = () => {
         <div style={{ display: 'flex', gap: '14px', marginBottom: '20px', alignItems: 'center' }}>
           <div style={{
             width: '36px', height: '36px', borderRadius: '10px',
-            background: 'var(--color-lime)',
+            background: 'rgba(255, 255, 255, 0.15)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0
           }}>
             <Leaf size={16} color="var(--color-text-primary)" />
           </div>
           <div>
-            <div style={{ fontSize: '14px', fontWeight: 700, color: '#FAFAF5' }}>Molecular Nutrition</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-bg-primary)' }}>Low-GI Indian meal plans with full macro tracking.</div>
+            <div style={{ fontSize: '14px', fontWeight: 900, color: '#000000' }}>Molecular Nutrition</div>
+            <div style={{ fontSize: '13px', color: '#000000', fontWeight: 700 }}>Low-GI Indian meal plans with full macro tracking.</div>
           </div>
         </div>
 
@@ -194,10 +198,12 @@ const AuthPage = () => {
               onClick={() => { setIsLogin(true); setError(''); }}
               style={{
                 flex: 1, padding: '10px', border: 'none', borderRadius: '9px',
-                fontSize: '14px', fontWeight: 600, cursor: 'pointer',
+                fontSize: '14px', fontWeight: 900, cursor: 'pointer',
                 transition: 'all 0.2s',
-                background: isLogin ? 'var(--color-accent-primary)' : 'transparent',
-                color: isLogin ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)'
+                background: isLogin ? 'var(--color-lavender)' : 'transparent',
+                color: '#000000',
+                boxShadow: isLogin ? '2px 2px 0px #000000' : 'none',
+                border: '2px solid #000000'
               }}
             >
               Login
@@ -206,11 +212,12 @@ const AuthPage = () => {
               onClick={() => { setIsLogin(false); setError(''); }}
               style={{
                 flex: 1, padding: '10px', border: 'none', borderRadius: '9px',
-                fontSize: '14px', fontWeight: 600, cursor: 'pointer',
+                fontSize: '14px', fontWeight: 900, cursor: 'pointer',
                 transition: 'all 0.2s',
-                background: !isLogin ? 'var(--color-accent-primary)' : 'transparent',
-                color: !isLogin ? '#FFFFFF' : 'var(--color-text-primary)',
-                fontWeight: 700
+                background: !isLogin ? 'var(--color-lavender)' : 'transparent',
+                color: '#000000',
+                boxShadow: !isLogin ? '2px 2px 0px #000000' : 'none',
+                border: '2px solid #000000'
               }}
             >
               Sign Up

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useStore } from '../store/useStore';
 import FoodProtocol from '../components/FoodProtocol';
-import { Droplet } from 'lucide-react';
+import { Droplet, Timer } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const CARD = { background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)' };
-const PILL = (active) => ({ border: 'none', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', background: active ? 'var(--color-emerald)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : 'var(--color-text-secondary)', transition: 'all 0.2s ease', boxShadow: active ? 'var(--shadow-sm)' : 'none' });
+const CARD = { background: '#FFFFFF', border: '2px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)' };
+const PILL = (active) => ({ border: 'none', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 800, cursor: 'pointer', background: active ? 'var(--color-accent-primary)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : '#000000', transition: 'all 0.2s ease', boxShadow: active ? 'var(--shadow-sm)' : 'none' });
 
 const ProteinCard = ({ bodyComp }) => {
   const [consumed, setConsumed] = useState(0);
@@ -139,7 +139,7 @@ const NutritionPage = () => {
         {/* Water Tracker */}
         <div style={{ background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '24px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <h4 style={{ color: 'var(--color-text-primary)', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}><Droplet size={18} color="#3b82f6" /> Hydration</h4>
+            <h4 style={{ color: 'var(--color-text-primary)', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}><Timer size={28} color="var(--color-forest)" /> Hydration</h4>
             <span style={{ fontSize: '13px', color: 'var(--color-text-secondary)', fontWeight: 600 }}>{water} / 8 Glasses</span>
           </div>
           <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between', marginTop: '24px' }}>
@@ -149,8 +149,8 @@ const NutritionPage = () => {
                 key={i} onClick={() => setWater(i + 1)} 
                 style={{ 
                   cursor: 'pointer', flex: 1, aspectRatio: '1', borderRadius: '8px',
-                  background: i < water ? 'var(--color-emerald)' : 'var(--color-bg-elevated)',
-                  border: `1px solid ${i < water ? 'var(--color-emerald)' : 'var(--color-border)'}`,
+                  background: i < water ? 'var(--color-teal-muted)' : 'var(--color-bg-elevated)',
+                  border: `1px solid ${i < water ? 'var(--color-teal-muted)' : 'var(--color-border)'}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'all 0.2s ease'
                 }}
