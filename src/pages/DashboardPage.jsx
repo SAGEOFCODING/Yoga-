@@ -38,7 +38,7 @@ const DashboardPage = () => {
     statusColor = '#111827';
   }
 
-  const radius = 65;
+  const radius = 84;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (ringFill / 100) * circumference;
 
@@ -68,7 +68,7 @@ const DashboardPage = () => {
   ];
 
   return (
-    <div style={{ maxWidth: isMobile ? '480px' : '900px', margin: '0 auto', padding: isMobile ? '80px 16px 40px' : '100px 32px 64px' }}>
+    <div style={{ maxWidth: isMobile ? '480px' : '1100px', margin: '0 auto', padding: isMobile ? '80px 16px 40px' : '100px 32px 64px' }}>
 
       {/* ═══ Quote of the Day ═══ */}
       <div style={{ background: 'var(--color-yellow, #FEF3C7)', border: '1px solid #E5E7EB', borderRadius: '12px', padding: '14px 16px', textAlign: 'center', marginBottom: '16px' }}>
@@ -100,22 +100,23 @@ const DashboardPage = () => {
 
       {/* ═══ RFM Body Composition Card (Expanded on Desktop) ═══ */}
       <div style={{ marginBottom: '24px' }}>
-        <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} style={{
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} style={{
           background: '#FFFFFF', border: '1px solid #E5E7EB',
-          borderRadius: '20px', padding: isMobile ? '24px' : '40px', overflow: 'hidden',
-          display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '24px' : '48px', alignItems: isMobile ? 'center' : 'flex-start',
-          textAlign: isMobile ? 'center' : 'left'
+          borderRadius: '24px', padding: isMobile ? '24px' : '48px', overflow: 'hidden',
+          display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '32px' : '64px', alignItems: isMobile ? 'center' : 'center',
+          textAlign: isMobile ? 'center' : 'left',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.03)'
         }}>
           {/* Left Side: Ring */}
-          <div style={{ flexShrink: 0, width: '180px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ position: 'relative', width: '160px', height: '160px', marginBottom: '16px' }}>
-              <svg width="100%" height="100%" viewBox="0 0 200 200" style={{ transform: 'rotate(-90deg)', display: 'block' }}>
-                <circle cx="100" cy="100" r={radius} fill="transparent" stroke="#F3F4F6" strokeWidth="10" />
-                <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke="#7C3AED" strokeWidth="12" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
+          <div style={{ flexShrink: 0, width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ position: 'relative', width: '180px', height: '180px', marginBottom: '20px' }}>
+              <svg width="100%" height="100%" viewBox="0 0 200 200" style={{ position: 'absolute', top: 0, left: 0, transform: 'rotate(-90deg)', transformOrigin: '50% 50%', overflow: 'visible', display: 'block', filter: `drop-shadow(0px 4px 12px ${ringColor}40)` }}>
+                <circle cx="100" cy="100" r={radius} fill="transparent" stroke="#F3F4F6" strokeWidth="12" />
+                <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke={ringColor} strokeWidth="12" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut", delay: 0.2 }} strokeLinecap="round" />
               </svg>
-              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
-                <div style={{ fontSize: '32px', fontWeight: 800, color: ringColor, lineHeight: 1 }}>{bodyComp.rfm}%</div>
-                <div style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '4px', fontWeight: 600 }}>RFM Index</div>
+              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', zIndex: 1 }}>
+                <div style={{ fontSize: '36px', fontWeight: 800, color: ringColor, lineHeight: 1, textShadow: '0 2px 10px rgba(0,0,0,0.05)' }}>{bodyComp.rfm}%</div>
+                <div style={{ fontSize: '11px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '6px', fontWeight: 700 }}>RFM Index</div>
               </div>
             </div>
             <div style={{ fontSize: '13px', color: '#6B7280', marginBottom: '4px', fontWeight: 500 }}>Desirable: {healthyMin}–{healthyMax}%</div>

@@ -102,13 +102,21 @@ const LandingPage = ({ onStart }) => {
       </section>
 
       {/* ═══ MAIN CONTENT SECTION ═══ */}
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '80px 24px 100px' : '100px 64px 100px' }}>
+      <div style={{ 
+        maxWidth: '900px', 
+        margin: '0 auto', 
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: isMobile ? '80px 24px' : '100px 64px' 
+      }}>
         {/* Top text — centered */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ textAlign: 'center', marginBottom: '64px' }}
+          style={{ textAlign: 'center' }}
         >
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
@@ -170,25 +178,6 @@ const LandingPage = ({ onStart }) => {
         </motion.div>
 
       </div>
-
-      <section id="specs-container" style={{ padding: '100px 0', background: 'rgba(122, 143, 92, 0.04)', borderTop: '1px solid var(--color-separator)' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '1100px' }}>
-          <h2 className="page-heading" style={{ marginBottom: '64px' }}>Technical Infrastructure</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '24px' }}>
-            {[
-              { title: "Risk Modeling", value: "Stochastic", desc: "Proprietary algorithms for systemic vulnerability detection." },
-              { title: "Therapy Logic", value: "Corrective", desc: "Intensity-restricted sequences for endocrine safety." },
-              { title: "Nutrition Engine", value: "Low GI", desc: "Molecularly targeted meal plans for insulin stabilization." }
-            ].map(spec => (
-              <div key={spec.title} className="glass-card-full" style={{ padding: '40px' }}>
-                <div style={{ color: 'var(--color-accent-bright)', fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', marginBottom: '16px', letterSpacing: '0.8px' }}>{spec.value}</div>
-                <h3 style={{ fontSize: '20px', marginBottom: '16px', color: 'var(--color-text-primary)' }}>{spec.title}</h3>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '15px', lineHeight: 1.6 }}>{spec.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
