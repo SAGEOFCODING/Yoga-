@@ -14,13 +14,14 @@ const LandingPage = ({ onStart }) => {
   return (
     <div style={{ position: 'relative' }}>
 
-      {/* ═══ FULLSCREEN HERO VIDEO SECTION ═══ */}
+      {/* ═══ FULLSCREEN HERO VIDEO — edge-to-edge ═══ */}
       <section
         id="hero-video-section"
         style={{
           position: 'relative',
-          width: '100%',
-          height: '100vh',
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          minHeight: '100vh',
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
@@ -50,14 +51,11 @@ const LandingPage = ({ onStart }) => {
           />
         </video>
 
-        {/* Dark semi-transparent overlay */}
+        {/* Dark overlay */}
         <div
           style={{
             position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
+            top: 0, left: 0, right: 0, bottom: 0,
             background: 'rgba(0, 0, 0, 0.45)',
             zIndex: 1,
           }}
@@ -72,7 +70,7 @@ const LandingPage = ({ onStart }) => {
             position: 'relative',
             zIndex: 2,
             textAlign: 'center',
-            padding: '0 24px',
+            padding: isMobile ? '0 24px' : '0 64px',
           }}
         >
           <h1
@@ -104,8 +102,8 @@ const LandingPage = ({ onStart }) => {
       </section>
 
       {/* ═══ MAIN CONTENT SECTION ═══ */}
-      <div className="container" style={{ paddingTop: '100px', paddingBottom: '100px', maxWidth: '900px' }}>
-        {/* Top text section — centered single column */}
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '80px 24px 100px' : '100px 64px 100px' }}>
+        {/* Top text — centered */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -137,7 +135,7 @@ const LandingPage = ({ onStart }) => {
             engineered for your specific metabolic markers.
           </p>
 
-          {/* ═══ SOFT-EDGED CTA WITH ICON ═══ */}
+          {/* ═══ CTA with UserCircle icon ═══ */}
           <button
             id="cta-step-forward"
             onClick={onStart}
@@ -151,11 +149,11 @@ const LandingPage = ({ onStart }) => {
               color: 'var(--color-text-primary)',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
-              textAlign: 'center',
-              lineHeight: 1.4,
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '12px',
+              justifyContent: 'center',
+              gap: '10px',
+              lineHeight: 1.4,
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'rgba(139, 92, 246, 0.14)';
@@ -166,12 +164,12 @@ const LandingPage = ({ onStart }) => {
               e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.35)';
             }}
           >
-            <UserCircle size={20} color="rgba(139, 92, 246, 0.8)" />
+            <UserCircle width={20} height={20} stroke="#7C3AED" />
             Let's take a step forward toward fitness
           </button>
         </motion.div>
 
-        {/* ═══ FEATURES — centered, no dotted box ═══ */}
+        {/* ═══ FEATURES — centered, no box ═══ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

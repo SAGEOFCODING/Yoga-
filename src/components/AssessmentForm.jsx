@@ -1,12 +1,30 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../store/useStore';
-import { User, Dna, FlaskConical, Check, Dumbbell, Leaf, Zap } from 'lucide-react';
+import { Check, Dumbbell, Leaf, Zap } from 'lucide-react';
+
+/* Inline SVG fallback icons to guarantee rendering */
+const UserIcon = ({ size = 16, color = 'currentColor' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+    <circle cx="12" cy="7" r="4"/>
+  </svg>
+);
+const ActivityIcon = ({ size = 16, color = 'currentColor' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+  </svg>
+);
+const FlaskIcon = ({ size = 16, color = 'currentColor' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 3h6m-5 0v6l-4 6a2 2 0 0 0 1.8 3h8.4A2 2 0 0 0 19 15l-4-6V3"/>
+  </svg>
+);
 
 const STEPS = [
-  { id: 'profile', title: 'Bio Profile', icon: <User size={18} /> },
-  { id: 'biometrics', title: 'Markers', icon: <Dna size={18} /> },
-  { id: 'conditions', title: 'Clinical', icon: <FlaskConical size={18} /> }
+  { id: 'profile', title: 'Bio Profile', Icon: UserIcon },
+  { id: 'biometrics', title: 'Markers', Icon: ActivityIcon },
+  { id: 'conditions', title: 'Clinical', Icon: FlaskIcon }
 ];
 
 const SegmentedControl = ({ options, value, onChange }) => (
@@ -117,53 +135,53 @@ const AssessmentForm = () => {
   return (
     <div className="container" style={{ paddingTop: '100px' }}>
       
-      {/* Progress Step Indicator */}
+      {/* Step Indicator */}
       <div style={{
-        display: 'flex', justifyContent: 'center', gap: '48px',
-        marginBottom: '48px', position: 'relative', maxWidth: '600px',
-        margin: '0 auto 48px', zIndex: 10,
-        background: 'var(--color-bg-primary)',
-        padding: '16px 24px 12px',
-        borderRadius: '16px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-        border: '1px solid var(--color-border)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        maxWidth: '600px', margin: '0 auto 20px',
+        border: '1px solid #E5E7EB', borderRadius: '14px',
+        padding: '16px 24px',
+        background: 'var(--color-bg-secondary)',
       }}>
-        {/* Progress line behind circles */}
-        <div style={{ position: 'absolute', top: '34px', left: '20%', width: '60%', height: '2px', background: 'var(--color-border)', zIndex: 0 }}>
-           <div style={{ width: `${((step - 1) / (STEPS.length - 1)) * 100}%`, height: '100%', background: 'var(--color-accent-primary)', transition: 'width 0.4s ease' }} />
-        </div>
-        {STEPS.map((s, idx) => {
-          const isCompleted = idx < step - 1;
-          const isActive = idx === step - 1;
-          const isInactive = idx > step - 1;
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', width: '100%', maxWidth: '400px' }}>
+          {/* Connector line */}
+          <div style={{ position: 'absolute', top: '18px', left: '16%', width: '68%', height: '1.5px', background: '#E5E7EB', zIndex: 0 }}>
+            <div style={{ width: `${((step - 1) / (STEPS.length - 1)) * 100}%`, height: '100%', background: '#7C3AED', transition: 'width 0.4s ease' }} />
+          </div>
 
-          return (
-            <div key={s.id} style={{ zIndex: 1, textAlign: 'center', flex: 'none', minWidth: '80px' }}>
-              <div style={{ 
-                width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 10px',
-                background: isCompleted ? 'var(--color-emerald)' : isActive ? 'var(--color-teal)' : 'var(--color-bg-elevated)',
-                border: isInactive ? '1px solid var(--color-border)' : 'none',
-                color: isCompleted ? '#FFFFFF' : isActive ? '#FFFFFF' : 'var(--color-text-tertiary)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                transition: 'all 0.3s ease',
-                boxShadow: isActive ? '0 0 0 5px rgba(16, 185, 129, 0.15)' : 'none'
-              }}>
-                {isCompleted ? <Check size={20} strokeWidth={3} /> : s.icon}
+          {STEPS.map((s, idx) => {
+            const isCompleted = idx < step - 1;
+            const isActive = idx === step - 1;
+
+            const circleBg = isCompleted ? '#7C3AED' : 'transparent';
+            const circleBorder = isCompleted ? '2px solid #7C3AED' : isActive ? '2px solid #22C55E' : '2px solid #D1D5DB';
+            const iconColor = isCompleted ? '#FFFFFF' : isActive ? '#22C55E' : '#9CA3AF';
+
+            return (
+              <div key={s.id} style={{ zIndex: 1, textAlign: 'center', flex: 1 }}>
+                <div style={{ 
+                  width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 8px',
+                  background: circleBg, border: circleBorder,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  transition: 'all 0.3s ease',
+                }}>
+                  {isCompleted 
+                    ? <Check size={16} strokeWidth={3} color="#FFFFFF" />
+                    : <s.Icon size={16} color={iconColor} />
+                  }
+                </div>
+                <span style={{ 
+                  fontSize: '12px', 
+                  fontWeight: isActive || isCompleted ? 600 : 400, 
+                  color: isActive || isCompleted ? '#0F172A' : '#9CA3AF',
+                  display: 'block',
+                }}>
+                  {s.title}
+                </span>
               </div>
-              <span style={{ 
-                fontSize: '13px', 
-                fontWeight: isActive || isCompleted ? 700 : 400, 
-                color: isActive || isCompleted ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
-                display: 'block',
-                borderBottom: isActive ? '2px solid var(--color-accent-primary)' : '2px solid transparent',
-                paddingBottom: '4px',
-                transition: 'all 0.2s ease',
-              }}>
-                {s.title}
-              </span>
-            </div>
-          )
-        })}
+            );
+          })}
+        </div>
       </div>
 
       {/* Card Content */}
