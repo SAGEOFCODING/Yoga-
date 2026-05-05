@@ -27,9 +27,9 @@ const DashboardPage = () => {
   } else {
     const deficit = healthyMin - rfmVal;
     ringFill = Math.min(100, (deficit / 10) * 100);
-    ringColor = 'var(--color-accent-lavender)';
+    ringColor = 'var(--color-teal)';
     statusText = `${deficit.toFixed(1)}% below healthy minimum`;
-    statusColor = 'var(--color-accent-lavender)';
+    statusColor = 'var(--color-teal)';
   }
 
   const radius = 70;
@@ -99,7 +99,7 @@ const DashboardPage = () => {
           <div style={{ position: 'relative', width: '200px', height: '200px', margin: '0 auto 24px' }}>
             <svg width="200" height="200" style={{ transform: 'rotate(-90deg)' }}>
               <circle cx="100" cy="100" r={radius} fill="transparent" stroke="rgba(0,0,0,0.06)" strokeWidth="10" />
-              <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke="var(--color-accent-dashboard)" strokeWidth="10" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
+              <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke="var(--color-emerald)" strokeWidth="10" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
             </svg>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
               <div style={{ fontSize: '32px', fontWeight: 800, color: ringColor, lineHeight: 1 }}>{bodyComp.rfm}%</div>
