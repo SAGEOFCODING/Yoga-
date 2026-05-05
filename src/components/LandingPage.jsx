@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Activity, Brain, Fingerprint, UserCircle } from 'lucide-react';
+import { Fingerprint, UserCircle } from 'lucide-react';
 
 const LandingPage = ({ onStart }) => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
@@ -169,27 +169,6 @@ const LandingPage = ({ onStart }) => {
           </button>
         </motion.div>
 
-        {/* ═══ FEATURES — centered, no box ═══ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          style={{ display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'center' }}
-        >
-          {[
-            { icon: <Shield />, title: "Predictive Logic", desc: "Real-time biomarker probability modeling." },
-            { icon: <Activity />, title: "Locked-Gate Protocol", desc: "Scientific intensity restriction systems." },
-            { icon: <Brain />, title: "Neural Nutrition", desc: "Low-glycemic cognitive metabolic fueling." }
-          ].map((feat) => (
-            <div key={feat.title} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', maxWidth: '400px' }}>
-              <div style={{ color: '#FFFFFF', padding: '16px', background: 'var(--color-accent-primary)', borderRadius: '16px', marginBottom: '12px' }}>
-                {React.cloneElement(feat.icon, { size: 24 })}
-              </div>
-              <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '8px', color: 'var(--color-text-primary)' }}>{feat.title}</h3>
-              <p style={{ fontSize: '15px', fontWeight: 500, color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>{feat.desc}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       <section id="specs-container" style={{ padding: '100px 0', background: 'rgba(122, 143, 92, 0.04)', borderTop: '1px solid var(--color-separator)' }}>
