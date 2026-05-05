@@ -74,7 +74,7 @@ const AuthPage = () => {
         <h1 style={{
           fontSize: isMobile ? '28px' : '42px',
           fontWeight: 800,
-          color: 'var(--color-text-primary)',
+          color: '#FAF8F4',
           lineHeight: 1.1,
           marginBottom: '24px',
           margin: '0 0 24px 0'
@@ -85,7 +85,7 @@ const AuthPage = () => {
         {/* Subtitle */}
         <p style={{
           fontSize: '15px',
-          color: 'var(--color-text-primary)',
+          color: '#E8E3DA',
           fontWeight: 500,
           lineHeight: 1.7,
           marginBottom: '48px'
