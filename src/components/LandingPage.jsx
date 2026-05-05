@@ -18,8 +18,100 @@ const LandingPage = ({ onStart }) => {
 
   return (
     <div style={{ position: 'relative' }}>
+
+      {/* ═══ FULLSCREEN HERO VIDEO SECTION ═══ */}
+      <section
+        id="hero-video-section"
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '100vh',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1920&q=80"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+          }}
+        >
+          {/* Free stock fitness/nature video — drop in any mp4 URL here */}
+          <source
+            src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Dark semi-transparent overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0, 0, 0, 0.45)',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Centered tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            textAlign: 'center',
+            padding: '0 24px',
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+              color: '#FFFFFF',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              lineHeight: 1.15,
+              marginBottom: '20px',
+              textShadow: '0 2px 20px rgba(0,0,0,0.3)',
+            }}
+          >
+            We are fit from soul
+          </h1>
+          <p
+            style={{
+              color: 'rgba(255, 255, 255, 0.6)',
+              fontSize: 'clamp(0.95rem, 2vw, 1.25rem)',
+              fontWeight: 400,
+              letterSpacing: '0.02em',
+              maxWidth: '600px',
+              margin: '0 auto',
+            }}
+          >
+            Your personalized fitness journey starts here
+          </p>
+        </motion.div>
+      </section>
+
+      {/* ═══ MAIN CONTENT SECTION ═══ */}
       <div className="container" style={{ paddingTop: '140px', paddingBottom: '100px', minHeight: '100vh', maxWidth: '1100px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center', textAlign: 'left' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 0.8fr', gap: '4rem', alignItems: 'center', textAlign: 'left' }}>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -50,9 +142,34 @@ const LandingPage = ({ onStart }) => {
               engineered for your specific metabolic markers.
             </p>
 
-            <div style={{ display: 'flex', gap: '16px' }}>
-              <button className="btn-primary" onClick={onStart} style={{ padding: '16px 32px', height: 'auto', borderRadius: '16px', fontSize: '18px', fontWeight: 800, background: 'linear-gradient(135deg, #059669 0%, #064E3B 100%)', boxShadow: '0 10px 25px rgba(5, 150, 105, 0.3)' }}>
-                Initialize Analysis <ArrowRight size={20} />
+            {/* ═══ SOFT-EDGED CTA + PROTOCOL SPECS ═══ */}
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <button
+                id="cta-step-forward"
+                onClick={onStart}
+                style={{
+                  background: 'rgba(139, 92, 246, 0.07)',
+                  border: '1.5px solid rgba(139, 92, 246, 0.35)',
+                  borderRadius: '20px',
+                  padding: '28px 48px',
+                  fontSize: '1.15rem',
+                  fontWeight: 500,
+                  color: 'var(--color-text-primary)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  textAlign: 'center',
+                  lineHeight: 1.4,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(139, 92, 246, 0.14)';
+                  e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.55)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(139, 92, 246, 0.07)';
+                  e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.35)';
+                }}
+              >
+                Let's take a step forward toward fitness
               </button>
               <button className="btn-outline" onClick={scrollToSpecs} style={{ padding: '16px 32px', height: 'auto', borderRadius: '12px', fontSize: '16px' }}>Protocol Specs</button>
             </div>
@@ -90,7 +207,7 @@ const LandingPage = ({ onStart }) => {
       <section id="specs-container" style={{ padding: '100px 0', background: 'rgba(122, 143, 92, 0.04)', borderTop: '1px solid var(--color-separator)' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '1100px' }}>
           <h2 className="page-heading" style={{ marginBottom: '64px' }}>Technical Infrastructure</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '24px' }}>
             {[
               { title: "Risk Modeling", value: "Stochastic", desc: "Proprietary algorithms for systemic vulnerability detection." },
               { title: "Therapy Logic", value: "Corrective", desc: "Intensity-restricted sequences for endocrine safety." },

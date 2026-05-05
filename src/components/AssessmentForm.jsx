@@ -115,11 +115,21 @@ const AssessmentForm = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{ paddingTop: '100px' }}>
       
       {/* Progress Step Indicator */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '40px', position: 'relative', maxWidth: '600px', margin: '0 auto 40px' }}>
-        <div style={{ position: 'absolute', top: '18px', left: '0', width: '100%', height: '2px', background: 'var(--color-border)', zIndex: 0 }}>
+      <div style={{
+        display: 'flex', justifyContent: 'center', gap: '48px',
+        marginBottom: '48px', position: 'relative', maxWidth: '600px',
+        margin: '0 auto 48px', zIndex: 10,
+        background: 'var(--color-bg-primary)',
+        padding: '16px 24px 12px',
+        borderRadius: '16px',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+        border: '1px solid var(--color-border)',
+      }}>
+        {/* Progress line behind circles */}
+        <div style={{ position: 'absolute', top: '34px', left: '20%', width: '60%', height: '2px', background: 'var(--color-border)', zIndex: 0 }}>
            <div style={{ width: `${((step - 1) / (STEPS.length - 1)) * 100}%`, height: '100%', background: 'var(--color-accent-primary)', transition: 'width 0.4s ease' }} />
         </div>
         {STEPS.map((s, idx) => {
@@ -128,22 +138,26 @@ const AssessmentForm = () => {
           const isInactive = idx > step - 1;
 
           return (
-            <div key={s.id} style={{ zIndex: 1, textAlign: 'center', flex: 1 }}>
+            <div key={s.id} style={{ zIndex: 1, textAlign: 'center', flex: 'none', minWidth: '80px' }}>
               <div style={{ 
-                width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 8px',
+                width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 10px',
                 background: isCompleted ? 'var(--color-emerald)' : isActive ? 'var(--color-teal)' : 'var(--color-bg-elevated)',
                 border: isInactive ? '1px solid var(--color-border)' : 'none',
                 color: isCompleted ? '#FFFFFF' : isActive ? '#FFFFFF' : 'var(--color-text-tertiary)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.3s ease',
-                boxShadow: isActive ? '0 0 0 5px rgba(16, 185, 129, 0.1)' : 'none'
+                boxShadow: isActive ? '0 0 0 5px rgba(16, 185, 129, 0.15)' : 'none'
               }}>
                 {isCompleted ? <Check size={20} strokeWidth={3} /> : s.icon}
               </div>
               <span style={{ 
                 fontSize: '13px', 
-                fontWeight: isActive || isCompleted ? 600 : 400, 
-                color: isActive || isCompleted ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)' 
+                fontWeight: isActive || isCompleted ? 700 : 400, 
+                color: isActive || isCompleted ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
+                display: 'block',
+                borderBottom: isActive ? '2px solid var(--color-accent-primary)' : '2px solid transparent',
+                paddingBottom: '4px',
+                transition: 'all 0.2s ease',
               }}>
                 {s.title}
               </span>
