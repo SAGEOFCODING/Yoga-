@@ -46,7 +46,7 @@ const LandingPage = ({ onStart }) => {
             </h1>
 
             <p style={{ fontSize: '18px', color: 'var(--color-text-primary)', fontWeight: 500, maxWidth: '580px', marginBottom: '48px', lineHeight: 1.6 }}>
-              Identify hidden physiological risks and unlock a <strong style={{ color: 'var(--color-accent-primary)' }}>"Locked-Gate"</strong> therapy plan 
+              Identify hidden physiological risks and unlock a <strong style={{ color: 'var(--color-accent-primary)' }}>"SoulFit"</strong> therapy plan 
               engineered for your specific metabolic markers.
             </p>
 

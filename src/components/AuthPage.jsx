@@ -66,8 +66,8 @@ const AuthPage = () => {
       }}>
         {/* Logo */}
         <div style={{ fontSize: '28px', fontWeight: 800, letterSpacing: '-0.5px', marginBottom: '48px' }}>
-          <span style={{ color: '#FAFAF5' }}>LOCKED</span>
-          <span style={{ color: '#DFF3B0' }}>GATE</span>
+          <span style={{ color: '#FAFAF5' }}>Soul</span>
+          <span style={{ color: '#DFF3B0' }}>Fit</span>
         </div>
 
         {/* Headline */}
