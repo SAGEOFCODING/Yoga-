@@ -94,9 +94,9 @@ const DashboardPage = () => {
 
       {/* ═══ RFM BODY COMPOSITION CARD ═══ */}
       <div style={{ maxWidth: '480px', margin: '0 auto 32px' }}>
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: 'center', background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
-          <div style={{ position: 'relative', width: '200px', height: '200px', margin: '0 auto 24px' }}>
-            <svg width="200" height="200" style={{ transform: 'rotate(-90deg)' }}>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: 'center', background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '20px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '180px', height: '180px', margin: '0 auto 20px', maxWidth: '100%' }}>
+            <svg width="100%" height="100%" viewBox="0 0 200 200" style={{ transform: 'rotate(-90deg)' }}>
               <circle cx="100" cy="100" r={radius} fill="transparent" stroke="rgba(0,0,0,0.06)" strokeWidth="10" />
               <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke="var(--color-lavender)" strokeWidth="14" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
             </svg>

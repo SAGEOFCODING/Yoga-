@@ -195,9 +195,9 @@ const WeeklySchedule = ({ onCompletionChange }) => {
             {viewMode === 'daily' && dayTotal > 0 ? ` · ${dayCompleted} / ${dayTotal} completed` : ''}
           </p>
         </div>
-        <div style={{ background: 'var(--color-bg-elevated)', borderRadius: '12px', padding: '4px', display: 'flex', border: '1px solid var(--color-border)', width: '200px' }}>
+        <div style={{ background: 'var(--color-bg-elevated)', borderRadius: '12px', padding: '4px', display: 'inline-flex', border: '1px solid var(--color-border)' }}>
           {['daily','weekly'].map(mode => (
-            <button key={mode} onClick={() => setViewMode(mode)} style={PILL(viewMode === mode)}>
+            <button key={mode} onClick={() => setViewMode(mode)} style={{ ...PILL(viewMode === mode), padding: '6px 18px' }}>
               {mode}
             </button>
           ))}
