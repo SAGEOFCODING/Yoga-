@@ -85,7 +85,8 @@ const AuthPage = () => {
         {/* Subtitle */}
         <p style={{
           fontSize: '15px',
-          color: 'var(--color-text-secondary)',
+          color: 'var(--color-text-primary)',
+          fontWeight: 500,
           lineHeight: 1.7,
           marginBottom: '48px'
         }}>
@@ -173,7 +174,8 @@ const AuthPage = () => {
             marginBottom: '8px', marginTop: 0
           }}>Welcome back</h2>
           <p style={{
-            fontSize: '14px', color: 'var(--color-text-secondary)',
+            fontSize: '14px', color: 'var(--color-text-primary)',
+            fontWeight: 500,
             marginBottom: '32px', marginTop: 0
           }}>
             {isLogin ? 'Sign in to your health dashboard' : 'Create your free account'}
@@ -219,9 +221,9 @@ const AuthPage = () => {
             {!isLogin && (
               <div style={{ marginBottom: '20px' }}>
                 <label style={{
-                  display: 'block', fontSize: '11px', fontWeight: 600,
+                  display: 'block', fontSize: '11px', fontWeight: 700,
                   letterSpacing: '0.8px', textTransform: 'uppercase',
-                  color: 'var(--color-text-secondary)', marginBottom: '8px'
+                  color: 'var(--color-text-primary)', marginBottom: '8px'
                 }}>Name</label>
                 <div className="input-group">
                   <input type="text" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
@@ -231,9 +233,9 @@ const AuthPage = () => {
 
             <div style={{ marginBottom: '20px' }}>
               <label style={{
-                display: 'block', fontSize: '11px', fontWeight: 600,
+                display: 'block', fontSize: '11px', fontWeight: 700,
                 letterSpacing: '0.8px', textTransform: 'uppercase',
-                color: 'var(--color-text-secondary)', marginBottom: '8px'
+                color: 'var(--color-text-primary)', marginBottom: '8px'
               }}>Email</label>
               <div className="input-group">
                 <input type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
@@ -242,9 +244,9 @@ const AuthPage = () => {
 
             <div style={{ marginBottom: '20px' }}>
               <label style={{
-                display: 'block', fontSize: '11px', fontWeight: 600,
+                display: 'block', fontSize: '11px', fontWeight: 700,
                 letterSpacing: '0.8px', textTransform: 'uppercase',
-                color: 'var(--color-text-secondary)', marginBottom: '8px'
+                color: 'var(--color-text-primary)', marginBottom: '8px'
               }}>Password</label>
               <div className="input-group">
                 <input type="password" value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} />
@@ -254,9 +256,9 @@ const AuthPage = () => {
             {!isLogin && (
               <div style={{ marginBottom: '20px' }}>
                 <label style={{
-                  display: 'block', fontSize: '11px', fontWeight: 600,
+                  display: 'block', fontSize: '11px', fontWeight: 700,
                   letterSpacing: '0.8px', textTransform: 'uppercase',
-                  color: 'var(--color-text-secondary)', marginBottom: '8px'
+                  color: 'var(--color-text-primary)', marginBottom: '8px'
                 }}>Confirm Password</label>
                 <div className="input-group">
                   <input type="password" value={formData.confirm} onChange={e => setFormData({ ...formData, confirm: e.target.value })} />
