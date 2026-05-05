@@ -54,12 +54,12 @@ const TrainingPreferenceSelector = ({ value, onChange }) => {
               background: isActive ? 'rgba(122, 143, 92, 0.06)' : 'var(--color-bg-elevated)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-text-primary)', fontSize: '16px' }}>
-              <span style={{ color: 'var(--color-emerald)' }}>{opt.icon}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#000000', fontSize: '16px', fontWeight: 800 }}>
+              <span style={{ color: '#000000' }}>{opt.icon}</span>
               {opt.label}
             </div>
-            <div style={{ color: 'var(--color-emerald)', opacity: isActive ? 1 : 0, transition: 'opacity 0.15s ease' }}>
-              <Check size={20} strokeWidth={3} />
+            <div style={{ color: '#000000', opacity: isActive ? 1 : 0, transition: 'opacity 0.15s ease' }}>
+              <Check size={20} strokeWidth={4} />
             </div>
           </div>
         );
@@ -131,12 +131,12 @@ const AssessmentForm = () => {
             <div key={s.id} style={{ zIndex: 1, textAlign: 'center', flex: 1 }}>
               <div style={{ 
                 width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 8px',
-                background: isCompleted ? 'var(--color-emerald)' : isActive ? 'var(--color-teal)' : 'var(--color-bg-elevated)',
-                border: isInactive ? '1px solid var(--color-border)' : 'none',
-                color: isCompleted ? '#FFFFFF' : isActive ? '#FFFFFF' : 'var(--color-text-tertiary)',
+                background: isCompleted ? 'var(--color-lavender)' : isActive ? 'var(--color-pink)' : '#FFFFFF',
+                border: '2px solid #000000',
+                color: '#000000',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.3s ease',
-                boxShadow: isActive ? '0 0 0 5px rgba(16, 185, 129, 0.1)' : 'none'
+                boxShadow: isActive ? '4px 4px 0px #000000' : 'none'
               }}>
                 {isCompleted ? <Check size={20} strokeWidth={3} /> : s.icon}
               </div>

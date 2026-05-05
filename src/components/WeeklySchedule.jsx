@@ -105,6 +105,9 @@ const MIXED_PLAN = {
   SUN: { name: 'Rest', tasks: [] }
 };
 
+const CARD = { background: '#FFFFFF', border: '2px solid #000000', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: '4px 4px 0px #000000' };
+const PILL = (active) => ({ border: '2px solid #000000', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 900, cursor: 'pointer', background: active ? 'var(--color-lavender)' : '#FFFFFF', color: '#000000', transition: 'all 0.2s ease', boxShadow: active ? '2px 2px 0px #000000' : 'none' });
+
 const ExerciseRow = ({ session, isCompleted, onToggle }) => {
   const [showVideo, setShowVideo] = useState(false);
   const videoId = session.youtubeId || 'dQw4w9WgXcQ';
@@ -113,20 +116,28 @@ const ExerciseRow = ({ session, isCompleted, onToggle }) => {
     <div style={{ background: 'var(--color-bg-elevated)', border: '1px solid var(--color-border)', borderRadius: '14px', padding: '16px 20px', marginBottom: '12px', transition: 'all 0.2s ease', opacity: isCompleted ? 0.6 : 1 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', flex: 1 }}>
-          <div onClick={onToggle} style={{ cursor: 'pointer', marginTop: '4px', border: isCompleted ? 'none' : '2px solid var(--color-border-active)', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: isCompleted ? 'var(--color-success)' : 'transparent', flexShrink: 0 }}>
+          <div onClick={onToggle} style={{ cursor: 'pointer', marginTop: '4px', border: '2px solid #000000', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: isCompleted ? 'var(--color-lavender)' : 'transparent', flexShrink: 0 }}>
             {isCompleted && <CheckCircle2 size={24} color="#fff" />}
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text-primary)' }}>{session.title}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '8px', fontSize: '12px', color: 'var(--color-text-secondary)' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-bg-elevated)', color: 'var(--color-teal)', padding: '2px 10px', borderRadius: '6px', border: '1px solid var(--color-border)', fontWeight: 600 }}><Activity size={12} /> {session.duration}</span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-bg-elevated)', color: 'var(--color-teal)', padding: '2px 10px', borderRadius: '6px', border: '1px solid var(--color-border)', fontWeight: 600 }}><Clock size={12} /> Rest: {session.rest}</span>
-              <span style={{ background: 'rgba(16, 185, 129, 0.1)', color: 'var(--color-emerald)', padding: '2px 10px', borderRadius: '6px', border: '1px solid rgba(16, 185, 129, 0.2)', fontWeight: 600 }}>{session.difficulty}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-blue)', color: '#000000', padding: '2px 10px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}><Activity size={12} /> {session.duration}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-green)', color: '#000000', padding: '2px 10px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}><Clock size={12} /> Rest: {session.rest}</span>
+              <span style={{ background: 'var(--color-pink)', color: '#000000', padding: '2px 10px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}>{session.difficulty}</span>
             </div>
             <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--color-text-tertiary)', lineHeight: 1.5 }}>{session.desc}</p>
           </div>
         </div>
-        <button onClick={() => setShowVideo(!showVideo)} style={{ background: 'var(--color-teal)', border: 'none', display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF', fontSize: '12px', fontWeight: 700, padding: '8px 12px', borderRadius: '8px', flexShrink: 0, cursor: 'pointer', boxShadow: '0 2px 8px rgba(15, 118, 110, 0.3)' }}>
+        <button onClick={() => setShowVideo(!showVideo)} style={{ 
+          background: '#FFFFFF', 
+          border: '2px solid #000000', 
+          display: 'flex', alignItems: 'center', gap: '6px', 
+          color: '#000000', 
+          fontSize: '12px', fontWeight: 900, padding: '8px 12px', borderRadius: '10px', flexShrink: 0, cursor: 'pointer', 
+          transition: 'all 0.3s ease',
+          boxShadow: '2px 2px 0px #000000'
+        }}>
           <PlayCircle size={16} /> {showVideo ? 'Hide' : 'Tutorial'}
         </button>
       </div>
@@ -179,14 +190,14 @@ const WeeklySchedule = ({ onCompletionChange }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <h3 className="page-heading" style={{ marginBottom: '8px' }}>Exercise Protocol</h3>
-          <p style={{ color: 'var(--color-text-secondary)', fontSize: '15px' }}>
-            {pref === 'Yoga' ? 'Yoga-focused' : pref === 'Mixed' ? 'Hybrid strength + yoga' : 'Strength-focused'} weekly split
+          <p style={{ color: '#000000', fontSize: '15px', fontWeight: 700 }}>
+            <span style={{ background: 'var(--color-lavender)', padding: '2px 8px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}>{pref === 'Yoga' ? 'Yoga-focused' : pref === 'Mixed' ? 'Hybrid strength + yoga' : 'Strength-focused'}</span> weekly split
             {viewMode === 'daily' && dayTotal > 0 ? ` · ${dayCompleted} / ${dayTotal} completed` : ''}
           </p>
         </div>
-        <div style={{ background: 'var(--color-bg-secondary)', borderRadius: '12px', padding: '4px', display: 'flex', border: '2px solid var(--color-lime)', width: '200px' }}>
+        <div style={{ background: 'var(--color-bg-elevated)', borderRadius: '12px', padding: '4px', display: 'flex', border: '1px solid var(--color-border)', width: '200px' }}>
           {['daily','weekly'].map(mode => (
-            <button key={mode} onClick={() => setViewMode(mode)} style={{ flex: 1, padding: '8px 0', textAlign: 'center', fontSize: '13px', border: 'none', fontWeight: viewMode === mode ? 600 : 500, color: viewMode === mode ? '#FFFFFF' : 'var(--color-text-tertiary)', background: viewMode === mode ? 'var(--color-emerald)' : 'transparent', borderRadius: '9px', transition: 'all 0.2s ease', cursor: 'pointer', textTransform: 'capitalize', boxShadow: viewMode === mode ? '0 2px 8px rgba(16, 185, 129, 0.25)' : 'none' }}>
+            <button key={mode} onClick={() => setViewMode(mode)} style={PILL(viewMode === mode)}>
               {mode}
             </button>
           ))}
@@ -198,17 +209,16 @@ const WeeklySchedule = ({ onCompletionChange }) => {
           <div style={{ overflowX: 'auto', display: 'flex', gap: '8px', paddingBottom: '16px', marginBottom: '16px', scrollbarWidth: 'none' }}>
             {days.map((d, i) => {
               const isActive = selectedDay === d;
-              const accentColor = isActive ? 'var(--color-lime)' : 'var(--color-bg-secondary)';
-              const borderColor = isActive ? 'var(--color-lime)' : 'var(--color-border)';
+              const accentColor = isActive ? 'var(--color-lavender)' : '#FFFFFF';
               return (
-                <button key={d} onClick={() => setSelectedDay(d)} style={{ flexShrink: 0, background: accentColor, border: `2px solid ${borderColor}`, borderRadius: '24px', padding: '8px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', transition: 'all 0.2s ease', minWidth: '70px', boxShadow: isActive ? '0 4px 12px rgba(163, 230, 53, 0.2)' : 'none' }}>
-                  <span style={{ fontSize: '10px', color: isActive ? '#FFFFFF' : 'var(--color-text-tertiary)' }}>{d}</span>
-                  <span style={{ fontSize: '16px', fontWeight: 'bold', color: isActive ? '#FFFFFF' : 'var(--color-text-primary)' }}>{i + 1}</span>
+                <button key={d} onClick={() => setSelectedDay(d)} style={{ flexShrink: 0, background: accentColor, border: '2px solid #000000', borderRadius: '24px', padding: '8px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', transition: 'all 0.2s ease', minWidth: '70px', boxShadow: isActive ? '4px 4px 0px #000000' : '2px 2px 0px rgba(0,0,0,0.1)' }}>
+                  <span style={{ fontSize: '10px', color: '#000000', fontWeight: 900 }}>{d}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 900, color: '#000000' }}>{i + 1}</span>
                 </button>
               );
             })}
           </div>
-          <h4 style={{ color: 'var(--color-emerald)', fontSize: '18px', fontWeight: 600, marginBottom: '16px' }}>{selectedDay} — {plan[selectedDay].name}</h4>
+          <h4 style={{ color: '#000000', fontSize: '18px', fontWeight: 800, marginBottom: '16px' }}>{selectedDay} — {plan[selectedDay].name}</h4>
           <AnimatePresence mode="wait">
             <motion.div key={selectedDay} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.2 }}>
               {plan[selectedDay].tasks.length > 0 ? plan[selectedDay].tasks.map(s => (

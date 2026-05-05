@@ -27,9 +27,9 @@ const DashboardPage = () => {
   } else {
     const deficit = healthyMin - rfmVal;
     ringFill = Math.min(100, (deficit / 10) * 100);
-    ringColor = 'var(--color-teal)';
+    ringColor = '#000000';
     statusText = `${deficit.toFixed(1)}% below healthy minimum`;
-    statusColor = 'var(--color-teal)';
+    statusColor = '#000000';
   }
 
   const radius = 70;
@@ -64,8 +64,8 @@ const DashboardPage = () => {
   return (
     <div className="container" style={{ paddingTop: '120px', paddingBottom: '100px' }}>
       {/* ═══ HEADER: Quote of the Day ═══ */}
-      <div style={{ background: 'var(--color-bg-secondary)', border: '2px solid var(--color-emerald)', borderRadius: 'var(--radius-md)', padding: '28px 32px', textAlign: 'center', marginBottom: '48px', boxShadow: 'var(--shadow-md)' }}>
-        <h4 style={{ color: 'var(--color-emerald)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '12px', fontWeight: 600 }}>Daily Bio-Correction Wisdom</h4>
+      <div style={{ background: 'var(--color-yellow)', border: '2px solid #000000', borderRadius: 'var(--radius-lg)', padding: '28px 32px', textAlign: 'center', marginBottom: '48px', boxShadow: '4px 4px 0px #000000' }}>
+        <h4 style={{ color: '#000000', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '12px', fontWeight: 900 }}>Daily Bio-Correction Wisdom</h4>
         <p style={{ fontSize: '22px', color: 'var(--color-text-primary)', fontStyle: 'italic', fontWeight: 500, lineHeight: 1.5 }}>"{quoteOfDay}"</p>
       </div>
 
@@ -78,15 +78,14 @@ const DashboardPage = () => {
             if (tip.icon === 'Wind') IconComponent = Wind;
             if (tip.icon === 'Zap') IconComponent = Zap;
 
-            const accentColors = ['var(--color-emerald)', 'var(--color-teal)', 'var(--color-emerald)'];
-            const textAccents = ['var(--color-teal)', 'var(--color-teal)', 'var(--color-teal)'];
-            const currentAccent = accentColors[i % 3];
+            const bgColors = ['var(--color-pink)', 'var(--color-green)', 'var(--color-blue)', 'var(--color-lavender)', 'var(--color-yellow)'];
+            const currentBg = bgColors[i % 5];
 
             return (
-              <div key={i} className="glass-card-full" style={{ padding: '24px', borderLeft: `6px solid ${currentAccent}`, borderRadius: '16px' }}>
-                <IconComponent size={20} color={currentAccent} />
-                <h5 style={{ color: textAccents[i % 3], fontSize: '15px', marginBottom: '8px', marginTop: '10px', fontWeight: 700 }}>{tip.title}</h5>
-                <p style={{ color: 'var(--color-text-secondary)', fontWeight: 500, fontSize: '13px', lineHeight: 1.6 }}>{tip.body}</p>
+              <div key={i} className="glass-card-full" style={{ padding: '24px', background: currentBg, border: '2px solid #000000', borderRadius: '16px' }}>
+                <IconComponent size={24} color="#000000" />
+                <h5 style={{ color: '#000000', fontSize: '15px', marginBottom: '8px', marginTop: '12px', fontWeight: 900 }}>{tip.title}</h5>
+                <p style={{ color: '#000000', fontWeight: 700, fontSize: '13px', lineHeight: 1.6 }}>{tip.body}</p>
               </div>
             );
           })}
@@ -99,7 +98,7 @@ const DashboardPage = () => {
           <div style={{ position: 'relative', width: '200px', height: '200px', margin: '0 auto 24px' }}>
             <svg width="200" height="200" style={{ transform: 'rotate(-90deg)' }}>
               <circle cx="100" cy="100" r={radius} fill="transparent" stroke="rgba(0,0,0,0.06)" strokeWidth="10" />
-              <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke="var(--color-emerald)" strokeWidth="10" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
+              <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke="var(--color-lavender)" strokeWidth="14" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
             </svg>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
               <div style={{ fontSize: '32px', fontWeight: 800, color: ringColor, lineHeight: 1 }}>{bodyComp.rfm}%</div>
@@ -128,10 +127,10 @@ const DashboardPage = () => {
             </div>
           </div>
 
-          <div style={{ background: 'var(--color-bg-elevated)', border: '1px solid var(--color-emerald)', borderRadius: '14px', padding: '16px', marginTop: '16px', textAlign: 'left' }}>
-            <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-teal)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}><Info size={14} /> BMI vs RFM</h4>
-            <p style={{ fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
-              <strong style={{ color: 'var(--color-emerald)' }}>BMI</strong> only compares weight to height. <strong style={{ color: 'var(--color-teal)' }}>RFM</strong> uses waist circumference to estimate actual body fat %, giving a far more accurate picture of metabolic health.
+          <div style={{ background: 'var(--color-blue)', border: '2px solid #000000', borderRadius: '12px', padding: '16px', marginTop: '16px', textAlign: 'left' }}>
+            <h4 style={{ fontSize: '13px', fontWeight: 900, color: '#000000', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}><Info size={14} /> BMI vs RFM</h4>
+            <p style={{ fontSize: '13px', color: '#000000', lineHeight: 1.5, fontWeight: 700 }}>
+              <strong style={{ textDecoration: 'underline' }}>BMI</strong> only compares weight to height. <strong style={{ textDecoration: 'underline' }}>RFM</strong> uses waist circumference to estimate actual body fat %, giving a far more accurate picture of metabolic health.
             </p>
           </div>
 

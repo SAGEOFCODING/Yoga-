@@ -30,28 +30,29 @@ const LandingPage = ({ onStart }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               style={{ 
-                display: 'inline-flex', alignItems: 'center', gap: '0.8rem',
-                background: 'rgba(122, 143, 92, 0.1)', border: '1px solid rgba(122, 143, 92, 0.3)',
-                color: 'var(--color-accent-bright)', padding: '0.6rem 1.2rem', borderRadius: '100px', 
-                fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '32px'
+                display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 18px',
+                background: 'var(--color-lavender)',
+                borderRadius: '100px', border: '2px solid #000000',
+                color: '#000000', fontSize: '11px', fontWeight: 900, 
+                textTransform: 'uppercase', letterSpacing: '1.2px', marginBottom: '32px'
               }}
             >
-              <Fingerprint size={16} color="var(--color-emerald)" />
+              <Fingerprint size={16} />
               Precision Bio-Correction Protocol v3.0
             </motion.div>
 
-            <h1 style={{ fontSize: isMobile ? '48px' : '80px', lineHeight: 0.95, marginBottom: '32px', letterSpacing: '-2px', color: 'var(--color-text-primary)', fontWeight: 800 }}>
-              STOP <span style={{ color: 'var(--color-accent-primary)' }}>GUESSING.</span><br />
-              START <span style={{ opacity: 0.2 }}>CORRECTING.</span>
+            <h1 style={{ fontSize: isMobile ? '48px' : '80px', lineHeight: 0.95, marginBottom: '32px', letterSpacing: '-2.5px', color: '#000000', fontWeight: 900 }}>
+              STOP <span style={{ color: 'var(--color-lavender)' }}>GUESSING.</span><br />
+              START <span style={{ opacity: 0.05 }}>CORRECTING.</span>
             </h1>
 
-            <p style={{ fontSize: '18px', color: 'var(--color-text-primary)', fontWeight: 500, maxWidth: '580px', marginBottom: '48px', lineHeight: 1.6 }}>
-              Identify hidden physiological risks and unlock a <strong style={{ color: 'var(--color-accent-primary)' }}>"SoulFit"</strong> therapy plan 
+            <p style={{ fontSize: '18px', color: '#000000', fontWeight: 700, maxWidth: '580px', marginBottom: '48px', lineHeight: 1.6 }}>
+              Identify hidden physiological risks and unlock a <strong style={{ color: 'var(--color-lavender)' }}>"SoulFit"</strong> therapy plan 
               engineered for your specific metabolic markers.
             </p>
 
             <div style={{ display: 'flex', gap: '16px' }}>
-              <button className="btn-primary" onClick={onStart} style={{ padding: '16px 32px', height: 'auto', borderRadius: '16px', fontSize: '18px', fontWeight: 800, background: 'linear-gradient(135deg, #059669 0%, #064E3B 100%)', boxShadow: '0 10px 25px rgba(5, 150, 105, 0.3)' }}>
+              <button className="btn-primary" onClick={onStart} style={{ padding: '16px 32px', height: 'auto', borderRadius: '12px', fontSize: '17px', fontWeight: 900 }}>
                 Initialize Analysis <ArrowRight size={20} />
               </button>
               <button className="btn-outline" onClick={scrollToSpecs} style={{ padding: '16px 32px', height: 'auto', borderRadius: '12px', fontSize: '16px' }}>Protocol Specs</button>

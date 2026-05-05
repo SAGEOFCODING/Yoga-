@@ -72,9 +72,9 @@ const MEAL_PLAN_DB = {
 };
 
 const NutrientRow = ({ label, value, bold, indent, thick }) => (
-  <div style={{ display:'flex', justifyContent:'space-between', borderBottom: thick ? '6px solid var(--color-accent-meals)' : '1px solid var(--color-separator)', padding:'5px 0', paddingLeft: indent ? `${indent}px` : '0' }}>
-    <span style={{ color:'var(--color-text-primary)', fontSize:'14px', fontWeight: bold ? 700 : 400 }}>{label}</span>
-    <span style={{ color:'var(--color-text-secondary)', fontSize:'14px' }}>{value || ''}</span>
+  <div style={{ display:'flex', justifyContent:'space-between', borderBottom: thick ? '4px solid #000000' : '1px solid var(--color-separator)', padding:'5px 0', paddingLeft: indent ? `${indent}px` : '0' }}>
+    <span style={{ color:'#000000', fontSize:'14px', fontWeight: 900 }}>{label}</span>
+    <span style={{ color:'#000000', fontSize:'14px', fontWeight: 800 }}>{value || ''}</span>
   </div>
 );
 
@@ -91,9 +91,9 @@ const FDANutrientLabel = ({ meal }) => {
         {isOpen && (
           <motion.div initial={{ height:0, opacity:0 }} animate={{ height:'auto', opacity:1 }} exit={{ height:0, opacity:0 }} style={{ overflow:'hidden' }}>
             <div style={{ background:'var(--color-bg-elevated)', border:'1px solid var(--color-border)', borderRadius:'14px', padding:'16px 20px', margin:'8px' }}>
-              <div style={{ fontSize:'28px', fontWeight:900, color:'var(--color-text-primary)', borderBottom:'6px solid var(--color-accent-meals)', paddingBottom:'8px', marginBottom:'8px' }}>Nutrition Facts</div>
-              <div style={{ fontSize:'13px', color:'var(--color-text-secondary)' }}>1 serving per recipe</div>
-              <div style={{ borderBottom:'6px solid var(--color-accent-meals)', paddingBottom:'8px', marginTop:'8px', marginBottom:'8px' }}>
+              <div style={{ fontSize:'24px', fontWeight:900, color:'#000000', borderBottom:'6px solid #000000', paddingBottom:'8px', marginBottom:'8px' }}>Nutrition Facts</div>
+              <div style={{ fontSize:'13px', color:'#000000', fontWeight: 800 }}>1 serving per recipe</div>
+              <div style={{ borderBottom:'4px solid #000000', paddingBottom:'8px', marginTop:'8px', marginBottom:'8px' }}>
                 <div style={{ fontSize:'13px', color:'var(--color-text-secondary)' }}>Amount per serving</div>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginTop:'4px' }}>
                   <span style={{ fontSize:'18px', fontWeight:700, color:'var(--color-text-primary)' }}>Calories</span>
@@ -130,8 +130,8 @@ const RecipeCard = ({ meal }) => {
     <div style={{ background:'var(--color-bg-secondary)', border:'1px solid var(--color-border)', borderRadius:'20px', padding:'24px', boxShadow:'0 4px 20px rgba(0,0,0,0.04)' }}>
       <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'16px' }}>
         <div style={{ display:'flex', alignItems:'center', gap:'8px' }}>
-          <span style={{ fontSize:'13px', color:'var(--color-accent-purple)', fontWeight:700 }}>{meal.time}</span>
-          <span style={{ fontSize:'11px', padding:'2px 8px', borderRadius:'4px', background:'var(--color-accent-pink)', color:'var(--color-text-primary)', textTransform:'uppercase', fontWeight:700 }}>{meal.type}</span>
+          <span style={{ fontSize:'13px', color:'#000000', fontWeight:900 }}>{meal.time}</span>
+          <span style={{ fontSize:'11px', padding:'4px 12px', borderRadius:'8px', background: meal.type === 'Breakfast' ? 'var(--color-pink)' : meal.type === 'Lunch' ? 'var(--color-green)' : meal.type === 'Dinner' ? 'var(--color-blue)' : 'var(--color-yellow)', color: '#000000', textTransform:'uppercase', fontWeight:900, border: '2px solid #000000' }}>{meal.type}</span>
         </div>
         <span style={{ fontSize:'13px', color:'var(--color-text-secondary)', fontWeight:500 }}>{meal.calories} KCAL</span>
       </div>
@@ -139,7 +139,15 @@ const RecipeCard = ({ meal }) => {
       <FDANutrientLabel meal={meal} />
       
       <div style={{ marginTop:'16px', paddingTop:'16px', borderTop:'1px solid var(--color-separator)' }}>
-        <button onClick={() => setShowIngredients(!showIngredients)} style={{ width: '100%', background:'var(--color-accent-quaternary)', border:'none', color:'#FFFFFF', fontSize:'14px', fontWeight:600, padding:'12px', borderRadius:'12px', cursor: 'pointer', boxShadow: '0 4px 12px rgba(208, 140, 96, 0.2)' }}>
+        <button onClick={() => setShowIngredients(!showIngredients)} style={{ 
+          width: '100%', 
+          background: '#FFFFFF', 
+          border: '2px solid #000000', 
+          color: '#000000', 
+          fontSize: '14px', fontWeight: 900, padding: '12px', borderRadius: '12px', cursor: 'pointer', 
+          transition: 'all 0.3s ease',
+          boxShadow: '4px 4px 0px #000000'
+        }}>
           🍲 {showIngredients ? 'Hide Ingredients' : 'View Ingredients'}
         </button>
       </div>
@@ -152,7 +160,7 @@ const RecipeCard = ({ meal }) => {
               <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'8px' }}>
                 {meal.ingredients?.map((ing, i) => (
                   <li key={i} style={{ display:'flex', alignItems:'flex-start', gap:'8px', fontSize:'14px', color:'var(--color-text-secondary)' }}>
-                    <span style={{ color:'var(--color-emerald)', marginTop:'4px' }}>•</span>
+                    <span style={{ color:'var(--color-primary)', marginTop:'4px' }}>•</span>
                     {ing}
                   </li>
                 ))}
