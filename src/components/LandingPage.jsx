@@ -32,13 +32,13 @@ const LandingPage = ({ onStart }) => {
               Precision Bio-Correction Protocol v2.0
             </motion.div>
 
-            <h1 style={{ fontSize: '80px', lineHeight: 0.95, marginBottom: '32px', letterSpacing: '-0.4px', color: 'var(--color-text-primary)' }}>
-              STOP <span style={{ color: 'var(--color-accent-light)' }}>GUESSING.</span><br />
-              START <span style={{ opacity: 0.5 }}>CORRECTING.</span>
+            <h1 style={{ fontSize: isMobile ? '48px' : '80px', lineHeight: 0.95, marginBottom: '32px', letterSpacing: '-2px', color: 'var(--color-text-primary)', fontWeight: 800 }}>
+              STOP <span style={{ color: 'var(--color-accent-primary)' }}>GUESSING.</span><br />
+              START <span style={{ opacity: 0.2 }}>CORRECTING.</span>
             </h1>
 
-            <p style={{ fontSize: '18px', color: 'var(--color-text-secondary)', maxWidth: '580px', marginBottom: '48px', lineHeight: 1.6 }}>
-              Identify hidden physiological risks and unlock a <strong style={{ color: 'var(--color-text-primary)' }}>"Locked-Gate"</strong> therapy plan 
+            <p style={{ fontSize: '18px', color: 'var(--color-text-primary)', fontWeight: 500, maxWidth: '580px', marginBottom: '48px', lineHeight: 1.6 }}>
+              Identify hidden physiological risks and unlock a <strong style={{ color: 'var(--color-accent-primary)' }}>"Locked-Gate"</strong> therapy plan 
               engineered for your specific metabolic markers.
             </p>
 
@@ -68,8 +68,8 @@ const LandingPage = ({ onStart }) => {
                       {React.cloneElement(feat.icon, { size: 24 })}
                     </div>
                     <div>
-                      <h3 style={{ fontSize: '18px', marginBottom: '8px', color: 'var(--color-text-primary)' }}>{feat.title}</h3>
-                      <p style={{ fontSize: '15px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>{feat.desc}</p>
+                      <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '8px', color: 'var(--color-text-primary)' }}>{feat.title}</h3>
+                      <p style={{ fontSize: '15px', fontWeight: 500, color: 'var(--color-text-primary)', lineHeight: 1.5 }}>{feat.desc}</p>
                     </div>
                   </div>
                 ))}
