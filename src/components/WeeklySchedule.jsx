@@ -105,8 +105,8 @@ const MIXED_PLAN = {
   SUN: { name: 'Rest', tasks: [] }
 };
 
-const CARD = { background: '#FFFFFF', border: '2px solid #000000', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: '4px 4px 0px #000000' };
-const PILL = (active) => ({ border: '2px solid #000000', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 900, cursor: 'pointer', background: active ? 'var(--color-lavender)' : '#FFFFFF', color: '#000000', transition: 'all 0.2s ease', boxShadow: active ? '2px 2px 0px #000000' : 'none' });
+const CARD = { background: 'var(--color-bg-secondary)', border: '2px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: '4px 4px 0px var(--color-border)' };
+const PILL = (active) => ({ border: '2px solid var(--color-border)', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 900, cursor: 'pointer', background: active ? 'var(--color-lavender)' : '#FFFFFF', color: 'var(--color-text-primary)', transition: 'all 0.2s ease', boxShadow: active ? '2px 2px 0px #000000' : 'none' });
 
 const ExerciseRow = ({ session, isCompleted, onToggle }) => {
   const [showVideo, setShowVideo] = useState(false);
@@ -116,27 +116,27 @@ const ExerciseRow = ({ session, isCompleted, onToggle }) => {
     <div style={{ background: 'var(--color-bg-elevated)', border: '1px solid var(--color-border)', borderRadius: '14px', padding: '16px 20px', marginBottom: '12px', transition: 'all 0.2s ease', opacity: isCompleted ? 0.6 : 1 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', flex: 1 }}>
-          <div onClick={onToggle} style={{ cursor: 'pointer', marginTop: '4px', border: '2px solid #000000', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: isCompleted ? 'var(--color-lavender)' : 'transparent', flexShrink: 0 }}>
+          <div onClick={onToggle} style={{ cursor: 'pointer', marginTop: '4px', border: '2px solid var(--color-border)', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: isCompleted ? 'var(--color-lavender)' : 'transparent', flexShrink: 0 }}>
             {isCompleted && <CheckCircle2 size={24} color="#fff" />}
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text-primary)' }}>{session.title}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '8px', fontSize: '12px', color: 'var(--color-text-secondary)' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-blue)', color: '#000000', padding: '2px 10px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}><Activity size={12} /> {session.duration}</span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-green)', color: '#000000', padding: '2px 10px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}><Clock size={12} /> Rest: {session.rest}</span>
-              <span style={{ background: 'var(--color-pink)', color: '#000000', padding: '2px 10px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}>{session.difficulty}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-blue)', color: 'var(--color-text-primary)', padding: '2px 10px', borderRadius: '6px', border: '2px solid var(--color-border)', fontWeight: 900 }}><Activity size={12} /> {session.duration}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-green)', color: 'var(--color-text-primary)', padding: '2px 10px', borderRadius: '6px', border: '2px solid var(--color-border)', fontWeight: 900 }}><Clock size={12} /> Rest: {session.rest}</span>
+              <span style={{ background: 'var(--color-pink)', color: 'var(--color-text-primary)', padding: '2px 10px', borderRadius: '6px', border: '2px solid var(--color-border)', fontWeight: 900 }}>{session.difficulty}</span>
             </div>
             <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--color-text-tertiary)', lineHeight: 1.5 }}>{session.desc}</p>
           </div>
         </div>
         <button onClick={() => setShowVideo(!showVideo)} style={{ 
-          background: '#FFFFFF', 
-          border: '2px solid #000000', 
+          background: 'var(--color-bg-secondary)', 
+          border: '2px solid var(--color-border)', 
           display: 'flex', alignItems: 'center', gap: '6px', 
-          color: '#000000', 
+          color: 'var(--color-text-primary)', 
           fontSize: '12px', fontWeight: 900, padding: '8px 12px', borderRadius: '10px', flexShrink: 0, cursor: 'pointer', 
           transition: 'all 0.3s ease',
-          boxShadow: '2px 2px 0px #000000'
+          boxShadow: '2px 2px 0px var(--color-border)'
         }}>
           <PlayCircle size={16} /> {showVideo ? 'Hide' : 'Tutorial'}
         </button>
@@ -190,8 +190,8 @@ const WeeklySchedule = ({ onCompletionChange }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <h3 className="page-heading" style={{ marginBottom: '8px' }}>Exercise Protocol</h3>
-          <p style={{ color: '#000000', fontSize: '15px', fontWeight: 700 }}>
-            <span style={{ background: 'var(--color-lavender)', padding: '2px 8px', borderRadius: '6px', border: '2px solid #000000', fontWeight: 900 }}>{pref === 'Yoga' ? 'Yoga-focused' : pref === 'Mixed' ? 'Hybrid strength + yoga' : 'Strength-focused'}</span> weekly split
+          <p style={{ color: 'var(--color-text-primary)', fontSize: '15px', fontWeight: 700 }}>
+            <span style={{ background: 'var(--color-lavender)', padding: '2px 8px', borderRadius: '6px', border: '2px solid var(--color-border)', fontWeight: 900 }}>{pref === 'Yoga' ? 'Yoga-focused' : pref === 'Mixed' ? 'Hybrid strength + yoga' : 'Strength-focused'}</span> weekly split
             {viewMode === 'daily' && dayTotal > 0 ? ` · ${dayCompleted} / ${dayTotal} completed` : ''}
           </p>
         </div>
@@ -211,14 +211,14 @@ const WeeklySchedule = ({ onCompletionChange }) => {
               const isActive = selectedDay === d;
               const accentColor = isActive ? 'var(--color-lavender)' : '#FFFFFF';
               return (
-                <button key={d} onClick={() => setSelectedDay(d)} style={{ flexShrink: 0, background: accentColor, border: '2px solid #000000', borderRadius: '24px', padding: '8px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', transition: 'all 0.2s ease', minWidth: '70px', boxShadow: isActive ? '4px 4px 0px #000000' : '2px 2px 0px rgba(0,0,0,0.1)' }}>
-                  <span style={{ fontSize: '10px', color: '#000000', fontWeight: 900 }}>{d}</span>
-                  <span style={{ fontSize: '16px', fontWeight: 900, color: '#000000' }}>{i + 1}</span>
+                <button key={d} onClick={() => setSelectedDay(d)} style={{ flexShrink: 0, background: accentColor, border: '2px solid var(--color-border)', borderRadius: '24px', padding: '8px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', transition: 'all 0.2s ease', minWidth: '70px', boxShadow: isActive ? '4px 4px 0px #000000' : '2px 2px 0px rgba(0,0,0,0.1)' }}>
+                  <span style={{ fontSize: '10px', color: 'var(--color-text-primary)', fontWeight: 900 }}>{d}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 900, color: 'var(--color-text-primary)' }}>{i + 1}</span>
                 </button>
               );
             })}
           </div>
-          <h4 style={{ color: '#000000', fontSize: '18px', fontWeight: 800, marginBottom: '16px' }}>{selectedDay} — {plan[selectedDay].name}</h4>
+          <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', fontWeight: 800, marginBottom: '16px' }}>{selectedDay} — {plan[selectedDay].name}</h4>
           <AnimatePresence mode="wait">
             <motion.div key={selectedDay} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.2 }}>
               {plan[selectedDay].tasks.length > 0 ? plan[selectedDay].tasks.map(s => (

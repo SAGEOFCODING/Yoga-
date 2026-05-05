@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --color-bg-primary: #FFFFFF;
-  --bg-gradient: linear-gradient(135deg, #FFFFFF 0%, #FDFCFB 100%);
-  --color-bg-secondary: #FFFFFF;
-  --color-bg-elevated: #FFFFFF;
-  --color-bg-glass: rgba(255, 255, 255, 1);
+  --color-bg-primary: #123E68;
+  --bg-gradient: linear-gradient(135deg, #123E68 0%, #0D2C4D 100%);
+  --color-bg-secondary: #1F5A94;
+  --color-bg-elevated: #0D2C4D;
+  --color-bg-glass: rgba(13, 44, 77, 0.7);
 
-  /* Refined Lighter Pastels Palette */
+  /* New Brand Mapping */
+  --color-accent-primary: #E63946;
+  --color-accent-secondary: #FF4D5A;
+  --color-accent-tertiary: #B82C38;
+  --color-accent-quaternary: #1F5A94;
+  
+  /* Lighter Variants mapping for components that expect pastel */
   --color-yellow: #FEF9C3;
   --color-yellow-text: #854D0E;
   --color-green: #DCFCE7;
@@ -16,42 +22,40 @@
   --color-blue-text: #1E40AF;
   --color-pink: #FCE7F3;
   --color-pink-text: #9D174D;
-  --color-lavender: #DDD6FE; /* LIGHTER SHADE */
+  --color-lavender: #DDD6FE;
   --color-lavender-light: #F5F3FF;
-  --color-lavender-text: #000000; /* Visibility first */
-  
-  /* Brand Mapping */
-  --color-accent-primary: #DDD6FE; 
-  --color-accent-secondary: #DCFCE7;
-  --color-accent-tertiary: #DBEAFE;
-  --color-accent-quaternary: #000000;
+  --color-lavender-text: #000000;
 
-  /* Section Mapping (The 5 Colors) */
-  --color-accent-exercise: #DBEAFE;   /* Light Blue */
-  --color-accent-meals: #DCFCE7;      /* Light Green */
-  --color-accent-meditation: #DDD6FE; /* Lighter Lavender */
-  --color-accent-dashboard: #FCE7F3;  /* Pink */
-  --color-accent-wisdom: #FEF9C3;     /* Yellow */
+  /* Section Mapping */
+  --color-accent-exercise: #E63946;
+  --color-accent-meals: #FF4D5A;
+  --color-accent-meditation: #1F5A94;
+  --color-accent-dashboard: #0D2C4D;
+  --color-accent-wisdom: #B82C38;
 
-  --color-success: #166534;
-  --color-warning: #854D0E;
-  --color-danger: #991B1B;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
 
-  --color-text-primary: #000000; /* ABSOLUTE VISIBILITY */
-  --color-text-secondary: #000000;
-  --color-text-tertiary: #000000;
+  --color-text-primary: #F1FAEE;
+  --color-text-secondary: #C9D6DF;
+  --color-text-tertiary: #8FA3B0;
 
-  --color-border: #000000; /* Distinct borders */
-  --color-border-active: #000000;
-  --color-separator: #E5E7EB;
+  --color-border: #365B8A;
+  --color-border-active: #F1FAEE;
+  --color-separator: rgba(241, 250, 238, 0.1);
+
+  --color-accent-bright: #FF4D5A;
+  --color-emerald: #22C55E;
+  --color-teal-muted: #8FA3B0;
 
   --font-main: 'Inter', -apple-system, sans-serif;
   --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
   
   /* Layout Effects */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
   --radius-lg: 20px;
   --radius-md: 12px;
 }
@@ -112,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-card {
   background: var(--color-bg-secondary);
-  border: 2px solid #000000;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 32px;
   box-shadow: var(--shadow-md);
@@ -122,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-card-full {
   background: var(--color-bg-secondary);
-  border: 2px solid #000000;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 32px;
   box-shadow: var(--shadow-sm);
@@ -178,31 +182,31 @@ input[type=number]::-webkit-outer-spin-button {
 
 .btn-primary {
   background: var(--color-accent-primary);
-  color: #000000;
+  color: var(--color-text-primary);
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.5px;
   border-radius: var(--radius-md);
   padding: 14px 28px;
   height: 52px;
-  border: 2px solid #000000;
+  border: 1px solid var(--color-border);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 4px 4px 0px var(--color-border);
 }
 
 .btn-primary:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000000;
+  box-shadow: 6px 6px 0px var(--color-border);
 }
 
 .btn-primary:active {
   transform: translate(0, 0);
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 2px 2px 0px var(--color-border);
 }
 
 .btn-primary:active {

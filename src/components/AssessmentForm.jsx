@@ -139,22 +139,22 @@ const AssessmentForm = () => {
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         maxWidth: '600px', margin: '0 auto 20px',
-        border: '1px solid #E5E7EB', borderRadius: '14px',
+        border: '1px solid var(--color-border)', borderRadius: '14px',
         padding: '16px 24px',
         background: 'var(--color-bg-secondary)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', width: '100%', maxWidth: '400px' }}>
           {/* Connector line */}
           <div style={{ position: 'absolute', top: '18px', left: '16%', width: '68%', height: '1.5px', background: '#E5E7EB', zIndex: 0 }}>
-            <div style={{ width: `${((step - 1) / (STEPS.length - 1)) * 100}%`, height: '100%', background: '#7C3AED', transition: 'width 0.4s ease' }} />
+            <div style={{ width: `${((step - 1) / (STEPS.length - 1)) * 100}%`, height: '100%', background: 'var(--color-accent-primary)', transition: 'width 0.4s ease' }} />
           </div>
 
           {STEPS.map((s, idx) => {
             const isCompleted = idx < step - 1;
             const isActive = idx === step - 1;
 
-            const circleBg = isCompleted ? '#7C3AED' : 'transparent';
-            const circleBorder = isCompleted ? '2px solid #7C3AED' : isActive ? '2px solid #22C55E' : '2px solid #D1D5DB';
+            const circleBg = isCompleted ? 'var(--color-accent-primary)' : 'transparent';
+            const circleBorder = isCompleted ? '2px solid var(--color-accent-primary)' : isActive ? '2px solid #22C55E' : '2px solid #D1D5DB';
             const iconColor = isCompleted ? '#FFFFFF' : isActive ? '#22C55E' : '#9CA3AF';
 
             return (

@@ -4,7 +4,7 @@ import FoodProtocol from '../components/FoodProtocol';
 import { Droplet, Timer } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const CARD = { background: '#FFFFFF', border: '2px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)' };
+const CARD = { background: 'var(--color-bg-secondary)', border: '2px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)' };
 const PILL = (active) => ({ border: 'none', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 800, cursor: 'pointer', background: active ? 'var(--color-accent-primary)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : '#000000', transition: 'all 0.2s ease', boxShadow: active ? 'var(--shadow-sm)' : 'none' });
 
 const ProteinCard = ({ bodyComp }) => {

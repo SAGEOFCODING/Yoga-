@@ -32,7 +32,7 @@ const Navbar = () => {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={reset}>
         <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '20px', letterSpacing: '-0.5px' }}>
-          <span style={{ color: '#000000' }}>Soul</span>
+          <span style={{ color: 'var(--color-text-primary)' }}>Soul</span>
           <span style={{ color: 'var(--color-lavender)' }}>Fit</span>
         </span>
       </div>
@@ -48,19 +48,19 @@ const Navbar = () => {
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-bg-elevated)', border: '1px solid var(--color-border)', borderRadius: '100px', padding: '6px 14px 6px 6px' }}>
-          <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#000000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 900, color: '#FFFFFF' }}>
+          <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--color-accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 900, color: 'var(--color-text-primary)' }}>
             {currentUser?.name?.charAt(0).toUpperCase()}
           </div>
-          <span style={{ fontSize: '13px', fontWeight: 700, color: '#000000' }}>
+          <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--color-text-primary)' }}>
             {currentUser?.name}
           </span>
         </div>
         <button className="btn-primary" onClick={isAssessed ? reset : () => setStep(1)}
-          style={{ padding: '8px 20px', height: '36px', fontSize: '13px', borderRadius: '8px', fontWeight: 700, border: '2px solid #000000', boxShadow: '2px 2px 0px #000000' }}>
+          style={{ padding: '8px 20px', height: '36px', fontSize: '13px', borderRadius: '8px', fontWeight: 700, border: '2px solid var(--color-border)', boxShadow: '2px 2px 0px var(--color-border)' }}>
           {isAssessed ? 'New Analysis' : 'Initialize'}
         </button>
         <button onClick={logoutUser}
-          style={{ background: 'transparent', border: '2px solid #000000', color: '#000000', padding: '8px 14px', borderRadius: '8px', fontSize: '13px', cursor: 'pointer', fontWeight: 800, boxShadow: '2px 2px 0px #000000' }}>
+          style={{ background: 'transparent', border: '2px solid var(--color-border)', color: 'var(--color-text-primary)', padding: '8px 14px', borderRadius: '8px', fontSize: '13px', cursor: 'pointer', fontWeight: 800, boxShadow: '2px 2px 0px var(--color-border)' }}>
           Logout
         </button>
       </div>

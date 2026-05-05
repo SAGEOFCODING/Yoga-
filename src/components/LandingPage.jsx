@@ -76,7 +76,7 @@ const LandingPage = ({ onStart }) => {
           <h1
             style={{
               fontSize: 'clamp(2rem, 5vw, 4.5rem)',
-              color: '#FFFFFF',
+              color: 'var(--color-text-primary)',
               fontWeight: 800,
               letterSpacing: '0.04em',
               lineHeight: 1.15,
@@ -172,7 +172,7 @@ const LandingPage = ({ onStart }) => {
               e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.35)';
             }}
           >
-            <UserCircle width={20} height={20} stroke="#7C3AED" />
+            <UserCircle width={20} height={20} stroke="var(--color-accent-primary)" />
             Let's take a step forward toward fitness
           </button>
         </motion.div>

@@ -232,7 +232,7 @@ const MeditationPage = () => {
         
         {/* Left column: controls */}
         <div style={{ flex: 1, minWidth: 0 }}>
-          <h4 style={{ color: '#000000', fontSize: '24px', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px', fontWeight: 900 }}>
+          <h4 style={{ color: 'var(--color-text-primary)', fontSize: '24px', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px', fontWeight: 900 }}>
             <Timer size={28} color="#000000" /> Meditation Timer
           </h4>
           
@@ -244,8 +244,8 @@ const MeditationPage = () => {
                   flex: 1, padding: '12px 4px', borderRadius: '12px', cursor: 'pointer',
                   fontSize: '12px', fontWeight: soundTheme === t.id ? 600 : 500, transition: 'all 0.2s ease',
                   background: soundTheme === t.id ? 'var(--color-lavender)' : '#FFFFFF',
-                  color: '#000000',
-                  border: '2px solid #000000',
+                  color: 'var(--color-text-primary)',
+                  border: '2px solid var(--color-border)',
                   boxShadow: soundTheme === t.id ? '2px 2px 0px #000000' : 'none',
                   display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px'
                 }}>
@@ -262,7 +262,7 @@ const MeditationPage = () => {
                 flex: 1, padding: '12px 0', border: 'none', borderRadius: '12px', cursor: 'pointer',
                 fontSize: '14px', fontWeight: selectedMin === d ? 600 : 500, transition: 'all 0.2s ease',
                 background: selectedMin === d ? 'var(--color-lavender)' : 'transparent',
-                color: '#000000',
+                color: 'var(--color-text-primary)',
                 fontWeight: 900,
                 border: selectedMin === d ? '2px solid #000000' : '1px solid transparent',
                 boxShadow: selectedMin === d ? '2px 2px 0px #000000' : 'none'
@@ -275,8 +275,8 @@ const MeditationPage = () => {
           <div style={{ display: 'flex', gap: '16px' }}>
             <button onClick={handleToggle} disabled={isComplete} style={{
               flex: 2,
-              background: 'var(--color-lavender)', color: '#000000', border: '2px solid #000000',
-              boxShadow: '4px 4px 0px #000000', fontWeight: 900,
+              background: 'var(--color-lavender)', color: 'var(--color-text-primary)', border: '2px solid var(--color-border)',
+              boxShadow: '4px 4px 0px var(--color-border)', fontWeight: 900,
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', transition: 'all 0.2s ease',
               opacity: isComplete ? 0.5 : 1
             }}>
@@ -284,12 +284,12 @@ const MeditationPage = () => {
             </button>
             <button onClick={handleReset} style={{
               flex: 1,
-              background: '#FFFFFF',
-              border: '2px solid #000000',
-              color: '#000000',
+              background: 'var(--color-bg-secondary)',
+              border: '2px solid var(--color-border)',
+              color: 'var(--color-text-primary)',
               borderRadius: '12px', padding: '16px 16px', fontWeight: 900, fontSize: '14px', cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', transition: 'all 0.3s ease',
-              boxShadow: '2px 2px 0px #000000'
+              boxShadow: '2px 2px 0px var(--color-border)'
             }}>
               <RotateCcw size={18} /> Reset
             </button>
@@ -304,11 +304,11 @@ const MeditationPage = () => {
           </svg>
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
             {isComplete ? (
-              <div style={{ color: '#000000', opacity: 1 }}>
+              <div style={{ color: 'var(--color-text-primary)', opacity: 1 }}>
                 <Check size={48} strokeWidth={4} />
               </div>
             ) : (
-              <div style={{ fontSize: '48px', fontWeight: 900, color: '#000000', letterSpacing: '-2px', fontVariantNumeric: 'tabular-nums' }}>
+              <div style={{ fontSize: '48px', fontWeight: 900, color: 'var(--color-text-primary)', letterSpacing: '-2px', fontVariantNumeric: 'tabular-nums' }}>
                 {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
               </div>
             )}
