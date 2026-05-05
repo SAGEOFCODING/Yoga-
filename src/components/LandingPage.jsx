@@ -23,7 +23,7 @@ const LandingPage = ({ onStart }) => {
               transition={{ delay: 0.2 }}
               style={{ 
                 display: 'inline-flex', alignItems: 'center', gap: '0.8rem',
-                background: 'rgba(116, 179, 206, 0.12)', border: '1px solid rgba(116, 179, 206, 0.4)',
+                background: 'rgba(122, 143, 92, 0.1)', border: '1px solid rgba(122, 143, 92, 0.3)',
                 color: 'var(--color-accent-bright)', padding: '0.6rem 1.2rem', borderRadius: '100px', 
                 fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '32px'
               }}
@@ -79,7 +79,7 @@ const LandingPage = ({ onStart }) => {
         </div>
       </div>
 
-      <section id="specs-container" style={{ padding: '100px 0', background: 'rgba(0,0,0,0.3)', borderTop: '1px solid var(--color-separator)' }}>
+      <section id="specs-container" style={{ padding: '100px 0', background: 'rgba(122, 143, 92, 0.04)', borderTop: '1px solid var(--color-separator)' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '1100px' }}>
           <h2 className="page-heading" style={{ marginBottom: '64px' }}>Technical Infrastructure</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>

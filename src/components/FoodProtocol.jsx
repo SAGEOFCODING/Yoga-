@@ -72,7 +72,7 @@ const MEAL_PLAN_DB = {
 };
 
 const NutrientRow = ({ label, value, bold, indent, thick }) => (
-  <div style={{ display:'flex', justifyContent:'space-between', borderBottom: thick ? '6px solid var(--color-border-active)' : '1px solid var(--color-separator)', padding:'5px 0', paddingLeft: indent ? `${indent}px` : '0' }}>
+  <div style={{ display:'flex', justifyContent:'space-between', borderBottom: thick ? '6px solid var(--color-accent-meals)' : '1px solid var(--color-separator)', padding:'5px 0', paddingLeft: indent ? `${indent}px` : '0' }}>
     <span style={{ color:'var(--color-text-primary)', fontSize:'14px', fontWeight: bold ? 700 : 400 }}>{label}</span>
     <span style={{ color:'var(--color-text-secondary)', fontSize:'14px' }}>{value || ''}</span>
   </div>
@@ -91,13 +91,13 @@ const FDANutrientLabel = ({ meal }) => {
         {isOpen && (
           <motion.div initial={{ height:0, opacity:0 }} animate={{ height:'auto', opacity:1 }} exit={{ height:0, opacity:0 }} style={{ overflow:'hidden' }}>
             <div style={{ background:'var(--color-bg-elevated)', border:'1px solid var(--color-border)', borderRadius:'14px', padding:'16px 20px', margin:'8px' }}>
-              <div style={{ fontSize:'28px', fontWeight:900, color:'var(--color-text-primary)', borderBottom:'6px solid var(--color-border-active)', paddingBottom:'8px', marginBottom:'8px' }}>Nutrition Facts</div>
+              <div style={{ fontSize:'28px', fontWeight:900, color:'var(--color-text-primary)', borderBottom:'6px solid var(--color-accent-meals)', paddingBottom:'8px', marginBottom:'8px' }}>Nutrition Facts</div>
               <div style={{ fontSize:'13px', color:'var(--color-text-secondary)' }}>1 serving per recipe</div>
-              <div style={{ borderBottom:'6px solid var(--color-border-active)', paddingBottom:'8px', marginTop:'8px', marginBottom:'8px' }}>
+              <div style={{ borderBottom:'6px solid var(--color-accent-meals)', paddingBottom:'8px', marginTop:'8px', marginBottom:'8px' }}>
                 <div style={{ fontSize:'13px', color:'var(--color-text-secondary)' }}>Amount per serving</div>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginTop:'4px' }}>
                   <span style={{ fontSize:'18px', fontWeight:700, color:'var(--color-text-primary)' }}>Calories</span>
-                  <span style={{ fontSize:'42px', fontWeight:900, color:'var(--color-accent-light)', lineHeight:1 }}>{meal.calories}</span>
+                  <span style={{ fontSize:'42px', fontWeight:900, color:'var(--color-accent-meals)', lineHeight:1 }}>{meal.calories}</span>
                 </div>
               </div>
               <div style={{ textAlign:'right', fontSize:'12px', color:'var(--color-text-tertiary)', borderBottom:'1px solid var(--color-separator)', padding:'4px 0' }}>% Daily Value*</div>
@@ -139,7 +139,7 @@ const RecipeCard = ({ meal }) => {
       <FDANutrientLabel meal={meal} />
       
       <div style={{ marginTop:'16px', paddingTop:'16px', borderTop:'1px solid var(--color-separator)' }}>
-        <button onClick={() => setShowIngredients(!showIngredients)} style={{ width: '100%', background:'var(--color-accent-primary)', border:'none', color:'#0A0F1E', fontSize:'14px', fontWeight:600, padding:'12px', borderRadius:'12px', cursor: 'pointer' }}>
+        <button onClick={() => setShowIngredients(!showIngredients)} style={{ width: '100%', background:'var(--color-accent-meals)', border:'none', color:'#FFFFFF', fontSize:'14px', fontWeight:600, padding:'12px', borderRadius:'12px', cursor: 'pointer' }}>
           🍲 {showIngredients ? 'Hide Ingredients' : 'View Ingredients'}
         </button>
       </div>
@@ -152,7 +152,7 @@ const RecipeCard = ({ meal }) => {
               <ul style={{ listStyle:'none', padding:0, margin:0, display:'flex', flexDirection:'column', gap:'6px' }}>
                 {meal.ingredients?.map((ing, i) => (
                   <li key={i} style={{ display:'flex', alignItems:'flex-start', gap:'8px', fontSize:'14px', color:'var(--color-text-secondary)' }}>
-                    <span style={{ color:'var(--color-accent-primary)', marginTop:'4px' }}>•</span>
+                    <span style={{ color:'var(--color-accent-meals)', marginTop:'4px' }}>•</span>
                     {ing}
                   </li>
                 ))}
@@ -176,7 +176,7 @@ const FoodProtocol = () => {
         </div>
         <div style={{ background:'var(--color-bg-elevated)', borderRadius:'12px', padding:'4px', display:'flex', border:'1px solid var(--color-border)', width:'280px' }}>
           {[0,1,2].map(idx => (
-            <button key={idx} onClick={() => setActiveDay(idx)} style={{ flex:1, padding:'10px 16px', textAlign:'center', fontSize:'14px', border:'none', fontWeight: activeDay===idx ? 600 : 500, color: activeDay===idx ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)', background: activeDay===idx ? 'var(--color-accent-primary)' : 'transparent', borderRadius:'9px', transition:'all 0.2s ease', cursor:'pointer', boxShadow: activeDay===idx ? '0 2px 8px rgba(0,0,0,0.25)' : 'none' }}>
+            <button key={idx} onClick={() => setActiveDay(idx)} style={{ flex:1, padding:'10px 16px', textAlign:'center', fontSize:'14px', border:'none', fontWeight: activeDay===idx ? 600 : 500, color: activeDay===idx ? '#FFFFFF' : 'var(--color-text-tertiary)', background: activeDay===idx ? 'var(--color-accent-meals)' : 'transparent', borderRadius:'9px', transition:'all 0.2s ease', cursor:'pointer', boxShadow: activeDay===idx ? '0 2px 8px rgba(0,0,0,0.25)' : 'none' }}>
               DAY {idx+1}
             </button>
           ))}

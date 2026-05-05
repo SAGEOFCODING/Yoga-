@@ -91,11 +91,11 @@ const DashboardPage = () => {
 
       {/* ═══ RFM BODY COMPOSITION CARD ═══ */}
       <div style={{ maxWidth: '480px', margin: '0 auto 32px' }}>
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: 'center', background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '24px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: 'center', background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
           <div style={{ position: 'relative', width: '200px', height: '200px', margin: '0 auto 24px' }}>
             <svg width="200" height="200" style={{ transform: 'rotate(-90deg)' }}>
-              <circle cx="100" cy="100" r={radius} fill="transparent" stroke="rgba(255,255,255,0.06)" strokeWidth="10" />
-              <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke={ringColor} strokeWidth="10" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
+              <circle cx="100" cy="100" r={radius} fill="transparent" stroke="rgba(0,0,0,0.06)" strokeWidth="10" />
+              <motion.circle cx="100" cy="100" r={radius} fill="transparent" stroke="var(--color-accent-dashboard)" strokeWidth="10" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 2, ease: "easeOut" }} strokeLinecap="round" />
             </svg>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
               <div style={{ fontSize: '32px', fontWeight: 800, color: ringColor, lineHeight: 1 }}>{bodyComp.rfm}%</div>
@@ -137,7 +137,7 @@ const DashboardPage = () => {
 
       {/* ═══ RECOMMENDATIONS CARD ═══ */}
       <div style={{ maxWidth: '480px', margin: '0 auto 16px' }}>
-        <motion.div style={{ padding: '24px', background: 'var(--color-bg-secondary)', border: '1px solid var(--color-accent-primary)', borderRadius: '20px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
+        <motion.div style={{ padding: '24px', background: 'var(--color-bg-secondary)', border: '1px solid var(--color-accent-primary)', borderRadius: '20px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
           <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '17px', marginBottom: '12px', color: 'var(--color-text-primary)', fontWeight: 600 }}>
             <ShieldCheck size={20} color="var(--color-accent-primary)" /> Recommendations
           </h4>

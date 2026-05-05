@@ -48,8 +48,8 @@ const WeightLog = () => {
       {last7.length >= 2 && (
         <>
           <svg width={W} height={H} style={{ display: 'block', margin: '0 auto 8px' }}>
-            <polyline points={polyline} fill="none" stroke="var(--color-accent-bright)" strokeWidth="2" strokeLinejoin="round" />
-            {points.map((p, i) => <circle key={i} cx={p.x} cy={p.y} r="4" fill="var(--color-accent-bright)" />)}
+            <polyline points={polyline} fill="none" stroke="var(--color-accent-meditation)" strokeWidth="2" strokeLinejoin="round" />
+            {points.map((p, i) => <circle key={i} cx={p.x} cy={p.y} r="4" fill="var(--color-accent-meditation)" />)}
             {points.map((p, i) => <text key={`l${i}`} x={p.x} y={H - 1} textAnchor="middle" fontSize="9" fill="var(--color-text-tertiary)">{p.day}</text>)}
           </svg>
           <div style={{ fontSize: '13px', fontWeight: 600, color: trendColor, textAlign: 'center' }}>{trend}</div>

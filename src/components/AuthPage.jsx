@@ -57,7 +57,7 @@ const AuthPage = () => {
       {/* ═══ LEFT BRANDED PANEL ═══ */}
       <div style={{
         width: isMobile ? '100%' : '45%',
-        background: 'linear-gradient(180deg, #0A0F1E 0%, #111827 100%)',
+        background: 'linear-gradient(180deg, #7A8F5C 0%, #5E6D46 100%)',
         padding: isMobile ? '40px 24px' : '60px',
         display: 'flex',
         flexDirection: 'column',
@@ -97,7 +97,7 @@ const AuthPage = () => {
         <div style={{ display: 'flex', gap: '14px', marginBottom: '20px', alignItems: 'center' }}>
           <div style={{
             width: '36px', height: '36px', borderRadius: '10px',
-            background: 'rgba(0,201,167,0.12)',
+            background: 'rgba(255,255,255,0.15)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0
           }}>

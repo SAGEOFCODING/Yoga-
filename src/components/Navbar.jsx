@@ -38,7 +38,7 @@ const Navbar = () => {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
         height: '64px', padding: '0 32px',
-        background: 'rgba(13, 31, 34, 0.88)',
+        background: 'var(--color-bg-glass)',
         backdropFilter: 'blur(20px) saturate(160%)',
         borderBottom: '1px solid var(--color-border)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center'

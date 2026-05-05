@@ -119,14 +119,14 @@ const ExerciseRow = ({ session, isCompleted, onToggle }) => {
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text-primary)' }}>{session.title}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '8px', fontSize: '12px', color: 'var(--color-text-secondary)' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: '4px' }}><Activity size={12} color="var(--color-accent-secondary)" /> {session.duration}</span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: '4px' }}><Clock size={12} color="var(--color-accent-primary)" /> Rest: {session.rest}</span>
-              <span style={{ background: 'rgba(255,255,255,0.05)', padding: '2px 8px', borderRadius: '4px' }}>{session.difficulty}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-accent-exercise)', color: 'var(--color-accent-deep)', padding: '2px 8px', borderRadius: '4px' }}><Activity size={12} color="var(--color-accent-secondary)" /> {session.duration}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-accent-exercise)', color: 'var(--color-accent-deep)', padding: '2px 8px', borderRadius: '4px' }}><Clock size={12} color="var(--color-accent-primary)" /> Rest: {session.rest}</span>
+              <span style={{ background: 'var(--color-accent-exercise)', color: 'var(--color-accent-deep)', padding: '2px 8px', borderRadius: '4px' }}>{session.difficulty}</span>
             </div>
             <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--color-text-tertiary)', lineHeight: 1.5 }}>{session.desc}</p>
           </div>
         </div>
-        <button onClick={() => setShowVideo(!showVideo)} style={{ background: 'rgba(0,201,167,0.1)', border: 'none', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-accent-primary)', fontSize: '12px', fontWeight: 600, padding: '8px 12px', borderRadius: '8px', flexShrink: 0, cursor: 'pointer' }}>
+        <button onClick={() => setShowVideo(!showVideo)} style={{ background: 'rgba(122, 143, 92, 0.1)', border: 'none', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-accent-primary)', fontSize: '12px', fontWeight: 600, padding: '8px 12px', borderRadius: '8px', flexShrink: 0, cursor: 'pointer' }}>
           <PlayCircle size={16} /> {showVideo ? 'Hide' : 'Tutorial'}
         </button>
       </div>
@@ -201,7 +201,7 @@ const WeeklySchedule = ({ onCompletionChange }) => {
               return (
                 <button key={d} onClick={() => setSelectedDay(d)} style={{ flexShrink: 0, background: isActive ? 'var(--color-accent-primary)' : 'var(--color-bg-elevated)', border: isActive ? 'none' : '1px solid var(--color-border)', borderRadius: '24px', padding: '8px 16px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', transition: 'all 0.2s ease', minWidth: '70px' }}>
                   <span style={{ fontSize: '10px', color: isActive ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)' }}>{d}</span>
-                  <span style={{ fontSize: '16px', fontWeight: 'bold', color: isActive ? '#ffffff' : 'var(--color-text-secondary)' }}>{i + 1}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 'bold', color: isActive ? '#ffffff' : 'var(--color-text-primary)' }}>{i + 1}</span>
                 </button>
               );
             })}

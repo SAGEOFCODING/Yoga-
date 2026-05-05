@@ -233,7 +233,7 @@ const MeditationPage = () => {
         {/* Left column: controls */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <h4 style={{ color: 'var(--color-text-primary)', fontSize: '24px', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
-            <Timer size={28} color="var(--color-accent-primary)" /> Meditation Timer
+            <Timer size={28} color="var(--color-accent-meditation)" /> Meditation Timer
           </h4>
           
           <div style={{ marginBottom: '24px' }}>
@@ -243,8 +243,8 @@ const MeditationPage = () => {
                 <button key={t.id} onClick={() => handleSoundChange(t.id)} style={{
                   flex: 1, padding: '12px 4px', borderRadius: '12px', cursor: 'pointer',
                   fontSize: '12px', fontWeight: soundTheme === t.id ? 600 : 500, transition: 'all 0.2s ease',
-                  background: soundTheme === t.id ? 'var(--color-accent-primary)' : 'var(--color-bg-elevated)',
-                  color: soundTheme === t.id ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)',
+                  background: soundTheme === t.id ? 'var(--color-accent-meditation)' : 'var(--color-bg-elevated)',
+                  color: soundTheme === t.id ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
                   border: soundTheme === t.id ? 'none' : '1px solid var(--color-border)',
                   display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px'
                 }}>
@@ -260,8 +260,8 @@ const MeditationPage = () => {
               <button key={d} onClick={() => handleDurationChange(d)} style={{
                 flex: 1, padding: '12px 0', border: 'none', borderRadius: '12px', cursor: 'pointer',
                 fontSize: '14px', fontWeight: selectedMin === d ? 600 : 500, transition: 'all 0.2s ease',
-                background: selectedMin === d ? 'var(--color-accent-primary)' : 'transparent',
-                color: selectedMin === d ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)',
+                background: selectedMin === d ? 'var(--color-accent-meditation)' : 'transparent',
+                color: selectedMin === d ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
                 boxShadow: selectedMin === d ? '0 2px 8px rgba(0,0,0,0.25)' : 'none'
               }}>
                 {d} min
@@ -294,7 +294,7 @@ const MeditationPage = () => {
         <div style={{ position: 'relative', width: '200px', height: '200px', flexShrink: 0 }}>
           <svg width="200" height="200" style={{ transform: 'rotate(-90deg)' }}>
             <circle cx="100" cy="100" r={ringRadius} fill="transparent" stroke="rgba(255,255,255,0.06)" strokeWidth="12" />
-            <circle cx="100" cy="100" r={ringRadius} fill="transparent" stroke="var(--color-accent-primary)" strokeWidth="12" strokeDasharray={ringCircum} strokeDashoffset={ringOffset} strokeLinecap="round" style={{ transition: 'stroke-dashoffset 0.5s ease' }} />
+            <circle cx="100" cy="100" r={ringRadius} fill="transparent" stroke="var(--color-accent-meditation)" strokeWidth="12" strokeDasharray={ringCircum} strokeDashoffset={ringOffset} strokeLinecap="round" style={{ transition: 'stroke-dashoffset 0.5s ease' }} />
           </svg>
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
             {isComplete ? (

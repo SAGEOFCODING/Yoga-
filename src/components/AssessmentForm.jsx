@@ -51,7 +51,7 @@ const TrainingPreferenceSelector = ({ value, onChange }) => {
               display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px',
               borderBottom: idx < options.length - 1 ? '1px solid var(--color-separator)' : 'none',
               cursor: 'pointer', transition: 'background 0.15s ease',
-              background: isActive ? 'rgba(116, 179, 206, 0.06)' : 'var(--color-bg-elevated)'
+              background: isActive ? 'rgba(122, 143, 92, 0.06)' : 'var(--color-bg-elevated)'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-text-primary)', fontSize: '16px' }}>
@@ -133,10 +133,10 @@ const AssessmentForm = () => {
                 width: '36px', height: '36px', borderRadius: '50%', margin: '0 auto 8px',
                 background: isCompleted ? 'var(--color-accent-primary)' : isActive ? 'var(--color-accent-bright)' : 'var(--color-bg-elevated)',
                 border: isInactive ? '1px solid var(--color-border)' : 'none',
-                color: isCompleted ? '#fff' : isActive ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)',
+                color: isCompleted ? '#fff' : isActive ? '#fff' : 'var(--color-text-tertiary)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.3s ease',
-                boxShadow: isActive ? '0 0 0 5px rgba(116,179,206,0.18)' : 'none'
+                boxShadow: isActive ? '0 0 0 5px rgba(122, 143, 92, 0.18)' : 'none'
               }}>
                 {isCompleted ? <Check size={20} strokeWidth={3} /> : s.icon}
               </div>
@@ -271,7 +271,7 @@ const AssessmentForm = () => {
                         display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px',
                         border: '1px solid', borderColor: isSelected ? 'var(--color-accent-primary)' : 'var(--color-border)',
                         cursor: 'pointer', transition: 'all 0.15s ease', borderRadius: '12px',
-                        background: isSelected ? 'rgba(0, 201, 167, 0.08)' : 'var(--color-bg-elevated)'
+                        background: isSelected ? 'rgba(122, 143, 92, 0.08)' : 'var(--color-bg-elevated)'
                       }}
                     >
                       <div style={{ color: 'var(--color-text-primary)', fontSize: '15px' }}>

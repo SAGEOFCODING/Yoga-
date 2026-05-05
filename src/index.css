@@ -1,28 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --color-bg-primary: #0A0F1E;
-  --color-bg-secondary: #111827;
-  --color-bg-elevated: #1A2235;
-  --color-bg-glass: rgba(10, 15, 30, 0.85);
+  --color-bg-primary: #FAF8F4;
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-elevated: #F3F0E9;
+  --color-bg-glass: rgba(250, 248, 244, 0.92);
 
-  --color-accent-primary: #00C9A7;
-  --color-accent-bright: #00C9A7;
-  --color-accent-light: #F1F5F9;
-  --color-accent-deep: #008f76;
-  --color-accent-secondary: #F59E0B;
+  --color-accent-primary: #7A8F5C; /* Olive */
+  --color-accent-bright: #7A8F5C;
+  --color-accent-light: #FFFFFF;
+  --color-accent-deep: #5E6D46;
+  --color-accent-secondary: #C97B63; /* Terracotta */
 
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-danger: #EF4444;
+  /* Section-specific Accents */
+  --color-accent-exercise: #BFD8B8; /* Light Green */
+  --color-accent-meals: #C97B63; /* Muted Red/Terracotta */
+  --color-accent-meditation: #D8D0E8; /* Lavender */
+  --color-accent-dashboard: #E8CFCB; /* Dusty Pink */
 
-  --color-text-primary: #F1F5F9;
-  --color-text-secondary: #94A3B8;
-  --color-text-tertiary: #64748B;
+  --color-success: #7A8F5C;
+  --color-warning: #C97B63;
+  --color-danger: #BC5D41;
 
-  --color-border: #1E293B;
-  --color-border-active: #00C9A7;
-  --color-separator: #1E293B;
+  --color-text-primary: #2F2F2F;
+  --color-text-secondary: #555555;
+  --color-text-tertiary: #777777;
+
+  --color-border: #E8E3DA;
+  --color-border-active: #7A8F5C;
+  --color-separator: #F0EDE6;
 
   --font-main: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
   --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
@@ -36,8 +42,7 @@
 
 body {
   font-family: var(--font-main);
-  background: radial-gradient(ellipse at top, #111827 0%, #0A0F1E 60%, #05080f 100%);
-  background-attachment: fixed;
+  background: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
   font-size: 15px;
@@ -87,7 +92,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--color-border);
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 1px 0 rgba(214,243,244,0.04) inset, 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -97,7 +102,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--color-border);
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 1px 0 rgba(214,243,244,0.04) inset, 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .input-group {
@@ -115,7 +120,7 @@ h1, h2, h3, h4 {
 }
 
 .input-group input, .input-group select {
-  background: var(--color-bg-elevated);
+  background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 14px 16px;
@@ -133,7 +138,7 @@ h1, h2, h3, h4 {
 
 .input-group input:focus, .input-group select:focus {
   border-color: var(--color-border-active);
-  box-shadow: 0 0 0 3px rgba(116, 179, 206, 0.12);
+  box-shadow: 0 0 0 3px rgba(122, 143, 92, 0.15);
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -144,7 +149,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .btn-primary {
   background: var(--color-accent-primary);
-  color: var(--color-accent-light);
+  color: #FFFFFF;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.4px;
@@ -161,12 +166,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn-primary:hover {
-  background: var(--color-accent-bright);
-  color: #0d1f22;
+  background: var(--color-accent-deep);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(122, 143, 92, 0.2);
 }
 
 .btn-primary:active {
-  background: var(--color-accent-deep);
   transform: scale(0.98);
 }
 
@@ -188,7 +194,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn-outline:hover {
-  background: rgba(116, 179, 206, 0.08);
+  background: rgba(122, 143, 92, 0.05);
   border-color: var(--color-accent-bright);
 }
 
@@ -204,11 +210,11 @@ input[type=number]::-webkit-outer-spin-button {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-active);
+  background: var(--color-border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-bright);
+  background: var(--color-accent-primary);
 }
 
 /* Animations & Transitions */

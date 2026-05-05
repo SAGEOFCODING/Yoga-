@@ -5,14 +5,14 @@ import { Droplet } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const CARD = { background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '24px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' };
-const PILL = (active) => ({ border: 'none', borderRadius: '8px', padding: '6px 10px', fontSize: '12px', fontWeight: 600, cursor: 'pointer', background: active ? 'var(--color-accent-primary)' : 'var(--color-bg-elevated)', color: active ? 'var(--color-bg-primary)' : 'var(--color-text-secondary)', transition: 'all 0.15s ease' });
+const PILL = (active) => ({ border: 'none', borderRadius: '8px', padding: '6px 10px', fontSize: '12px', fontWeight: 600, cursor: 'pointer', background: active ? 'var(--color-accent-meals)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : 'var(--color-text-secondary)', transition: 'all 0.15s ease' });
 
 const ProteinCard = ({ bodyComp }) => {
   const [consumed, setConsumed] = useState(0);
   const weight = parseFloat(bodyComp?.weight) || 70;
   const goal = Math.round((weight * 1.6) / 5) * 5;
   const pct = Math.min((consumed / goal) * 100, 100);
-  const barColor = pct >= 100 ? 'var(--color-success)' : pct >= 50 ? 'var(--color-accent-primary)' : 'var(--color-warning)';
+  const barColor = pct >= 100 ? 'var(--color-success)' : pct >= 50 ? 'var(--color-accent-meals)' : 'var(--color-warning)';
   return (
     <div style={CARD}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
@@ -103,7 +103,7 @@ const FiberCard = () => {
   const [consumed, setConsumed] = useState(0);
   const goal = 30;
   const pct = Math.min((consumed / goal) * 100, 100);
-  const barColor = pct >= 100 ? 'var(--color-success)' : pct >= 50 ? 'var(--color-accent-primary)' : 'var(--color-warning)';
+  const barColor = pct >= 100 ? 'var(--color-success)' : pct >= 50 ? 'var(--color-accent-meals)' : 'var(--color-warning)';
   let tip = 'Eat more vegetables, legumes and whole grains';
   if (consumed >= 30) tip = 'Daily fiber goal achieved! ✓';
   else if (consumed >= 20) tip = 'Almost there! Keep it up';
