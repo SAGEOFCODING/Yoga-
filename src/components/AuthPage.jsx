@@ -152,7 +152,7 @@ const AuthPage = () => {
             width: '6px', height: '6px', borderRadius: '50%',
             background: 'var(--color-success)', flexShrink: 0
           }} />
-          <span style={{ fontSize: '12px', color: 'var(--color-bg-primary)' }}>Trusted by 10,000+ users across India</span>
+          <span style={{ fontSize: '12px', color: '#FFFFFF', fontWeight: 500, opacity: 0.9 }}>Trusted by 10,000+ users across India</span>
         </div>
       </div>
 
@@ -209,7 +209,8 @@ const AuthPage = () => {
                 fontSize: '14px', fontWeight: 600, cursor: 'pointer',
                 transition: 'all 0.2s',
                 background: !isLogin ? 'var(--color-accent-primary)' : 'transparent',
-                color: !isLogin ? 'var(--color-bg-primary)' : 'var(--color-text-tertiary)'
+                color: !isLogin ? '#FFFFFF' : 'var(--color-text-primary)',
+                fontWeight: 700
               }}
             >
               Sign Up
@@ -282,7 +283,7 @@ const AuthPage = () => {
               className="btn-primary"
               style={{
                 width: '100%', marginTop: '8px', height: '52px',
-                fontSize: '15px', borderRadius: '12px'
+                fontSize: '15px', fontWeight: 700, borderRadius: '12px'
               }}
             >
               {isLogin ? 'Login to Dashboard' : 'Create Account'}

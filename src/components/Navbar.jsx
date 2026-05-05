@@ -70,7 +70,7 @@ const Navbar = () => {
           </span>
         </div>
         <button className="btn-primary" onClick={isAssessed ? reset : () => setStep(1)}
-          style={{ padding: '8px 16px', height: 'auto', borderRadius: '8px', fontSize: '13px' }}>
+          style={{ padding: '8px 16px', height: 'auto', borderRadius: '8px', fontSize: '13px', fontWeight: 700 }}>
           {isAssessed ? 'New Analysis' : 'Initialize'}
         </button>
         <button onClick={logoutUser}
