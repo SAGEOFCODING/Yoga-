@@ -11,7 +11,7 @@ const SleepTracker = () => {
   };
 
   return (
-    <div style={{ background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '32px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
+    <div style={{ background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '32px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
         <h4 style={{ color: 'var(--color-text-primary)', fontSize: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}><Moon size={24} color="#8b5cf6" /> Sleep Recovery</h4>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CARD = { background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '24px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' };
+const CARD = { background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: '20px', padding: '24px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)' };
 const PILL = (active) => ({ border: 'none', borderRadius: '8px', padding: '6px 10px', fontSize: '12px', fontWeight: 600, cursor: 'pointer', background: active ? 'var(--color-accent-primary)' : 'var(--color-bg-elevated)', color: active ? 'var(--color-bg-primary)' : 'var(--color-text-secondary)', transition: 'all 0.15s ease' });
 
 const WeightLog = () => {

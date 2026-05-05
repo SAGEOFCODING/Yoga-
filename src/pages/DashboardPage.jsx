@@ -71,7 +71,7 @@ const DashboardPage = () => {
 
       {/* ═══ WELLNESS TIPS ═══ */}
       <div style={{ marginBottom: '48px' }}>
-        <h4 style={{ color: 'var(--color-text-secondary)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '16px', fontWeight: 600 }}>Quick Wellness Tips</h4>
+        <h4 style={{ color: 'var(--color-text-primary)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '16px', fontWeight: 700 }}>Quick Wellness Tips</h4>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
           {dailyTips.map((tip, i) => {
             let IconComponent = Brain;
@@ -82,7 +82,7 @@ const DashboardPage = () => {
               <div key={i} className="glass-card-full" style={{ padding: '20px' }}>
                 <IconComponent size={20} color="var(--color-accent-primary)" />
                 <h5 style={{ color: 'var(--color-accent-secondary)', fontSize: '14px', marginBottom: '8px', marginTop: '10px' }}>{tip.title}</h5>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '13px', lineHeight: 1.6 }}>{tip.body}</p>
+                <p style={{ color: 'var(--color-text-primary)', fontWeight: 500, fontSize: '13px', lineHeight: 1.6 }}>{tip.body}</p>
               </div>
             );
           })}
@@ -105,7 +105,7 @@ const DashboardPage = () => {
           <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)', marginBottom: '4px' }}>Desirable: {healthyMin}–{healthyMax}%</div>
           <div style={{ fontSize: '13px', fontWeight: 600, color: statusColor, marginBottom: '16px' }}>{statusText}</div>
           <h2 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px', color: ringColor }}>{bodyComp.fitnessClass || 'Assessment Complete'}</h2>
-          <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', marginBottom: '24px', padding: '0 10px', lineHeight: 1.5 }}>{bodyComp.summary}</p>
+          <p style={{ fontSize: '14px', color: 'var(--color-text-primary)', fontWeight: 500, marginBottom: '24px', padding: '0 10px', lineHeight: 1.5 }}>{bodyComp.summary}</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', textAlign: 'left' }}>
             <div style={{ padding: '14px 16px', background: 'var(--color-bg-elevated)', borderRadius: '14px', border: '1px solid var(--color-border)' }}>
