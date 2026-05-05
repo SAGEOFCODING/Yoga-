@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, PlayCircle } from 'lucide-react';
+import { ChevronDown, PlayCircle, Fingerprint } from 'lucide-react';
 
 const MEAL_PLAN_DB = {
   0: [
@@ -186,9 +186,9 @@ const FoodProtocol = () => {
           <h3 className="page-heading" style={{ marginBottom:'8px' }}>Molecular Nutrition</h3>
           <p style={{ color:'var(--color-text-secondary)', fontSize:'15px' }}>4-Meal Daily Protocol (Pure Vegetarian Options)</p>
         </div>
-        <div style={{ background:'var(--color-bg-secondary)', borderRadius:'12px', padding:'4px', display:'flex', border:'2px solid var(--color-accent-brown)', width:'280px' }}>
+        <div style={{ background:'#F1F5F9', borderRadius:'99px', padding:'4px', display:'flex', border:'1px solid var(--color-border)', width:'280px' }}>
           {[0,1,2].map(idx => (
-            <button key={idx} onClick={() => setActiveDay(idx)} style={{ flex:1, padding:'10px 16px', textAlign:'center', fontSize:'14px', border:'none', fontWeight: activeDay===idx ? 600 : 500, color: activeDay===idx ? '#FFFFFF' : 'var(--color-text-tertiary)', background: activeDay===idx ? 'var(--color-accent-quaternary)' : 'transparent', borderRadius:'9px', transition:'all 0.2s ease', cursor:'pointer', boxShadow: activeDay===idx ? '0 2px 8px rgba(208, 140, 96, 0.25)' : 'none' }}>
+            <button key={idx} onClick={() => setActiveDay(idx)} style={{ flex:1, padding:'8px 16px', textAlign:'center', fontSize:'13px', border:'none', fontWeight: activeDay===idx ? 700 : 500, color: activeDay===idx ? 'var(--color-text-primary)' : 'var(--color-text-secondary)', background: activeDay===idx ? '#FFFFFF' : 'transparent', borderRadius:'99px', transition:'all 0.2s ease', cursor:'pointer', boxShadow: activeDay===idx ? '0 1px 4px rgba(15,23,42,0.08)' : 'none' }}>
               DAY {idx+1}
             </button>
           ))}
