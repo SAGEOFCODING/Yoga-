@@ -51,7 +51,7 @@ const LandingPage = ({ onStart }) => {
             </p>
 
             <div style={{ display: 'flex', gap: '16px' }}>
-              <button className="btn-primary" onClick={onStart} style={{ padding: '16px 32px', height: 'auto', borderRadius: '16px', fontSize: '18px', background: 'linear-gradient(135deg, var(--color-emerald) 0%, var(--color-teal) 100%)' }}>
+              <button className="btn-primary" onClick={onStart} style={{ padding: '16px 32px', height: 'auto', borderRadius: '16px', fontSize: '18px', fontWeight: 800, background: 'linear-gradient(135deg, #059669 0%, #064E3B 100%)', boxShadow: '0 10px 25px rgba(5, 150, 105, 0.3)' }}>
                 Initialize Analysis <ArrowRight size={20} />
               </button>
               <button className="btn-outline" onClick={scrollToSpecs} style={{ padding: '16px 32px', height: 'auto', borderRadius: '12px', fontSize: '16px' }}>Protocol Specs</button>
