@@ -78,8 +78,8 @@ const DashboardPage = () => {
             if (tip.icon === 'Wind') IconComponent = Wind;
             if (tip.icon === 'Zap') IconComponent = Zap;
 
-            const accentColors = ['var(--color-emerald)', 'var(--color-teal)', 'var(--color-lime)'];
-            const textAccents = ['var(--color-teal)', 'var(--color-emerald)', 'var(--color-teal)'];
+            const accentColors = ['var(--color-emerald)', 'var(--color-teal)', 'var(--color-emerald)'];
+            const textAccents = ['var(--color-teal)', 'var(--color-teal)', 'var(--color-teal)'];
             const currentAccent = accentColors[i % 3];
 
             return (

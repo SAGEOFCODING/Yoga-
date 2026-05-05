@@ -5,7 +5,7 @@ import { Droplet } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const CARD = { background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)' };
-const PILL = (active) => ({ border: 'none', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 600, cursor: 'pointer', background: active ? 'var(--color-emerald)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : 'var(--color-text-secondary)', transition: 'all 0.2s ease', boxShadow: active ? 'var(--shadow-sm)' : 'none' });
+const PILL = (active) => ({ border: 'none', borderRadius: '12px', padding: '10px 16px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', background: active ? 'var(--color-emerald)' : 'var(--color-bg-elevated)', color: active ? '#FFFFFF' : 'var(--color-text-secondary)', transition: 'all 0.2s ease', boxShadow: active ? 'var(--shadow-sm)' : 'none' });
 
 const ProteinCard = ({ bodyComp }) => {
   const [consumed, setConsumed] = useState(0);

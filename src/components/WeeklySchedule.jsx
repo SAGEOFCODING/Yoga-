@@ -119,9 +119,9 @@ const ExerciseRow = ({ session, isCompleted, onToggle }) => {
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text-primary)' }}>{session.title}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '8px', fontSize: '12px', color: 'var(--color-text-secondary)' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-bg-elevated)', color: 'var(--color-lime)', padding: '2px 8px', borderRadius: '4px', border: '1px solid var(--color-border)' }}><Activity size={12} color="var(--color-lime)" /> {session.duration}</span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-bg-elevated)', color: 'var(--color-teal)', padding: '2px 8px', borderRadius: '4px', border: '1px solid var(--color-border)' }}><Clock size={12} color="var(--color-teal)" /> Rest: {session.rest}</span>
-              <span style={{ background: 'var(--color-bg-elevated)', color: 'var(--color-emerald)', padding: '2px 8px', borderRadius: '4px', border: '1px solid var(--color-border)' }}>{session.difficulty}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-bg-elevated)', color: 'var(--color-teal)', padding: '2px 10px', borderRadius: '6px', border: '1px solid var(--color-border)', fontWeight: 600 }}><Activity size={12} /> {session.duration}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'var(--color-bg-elevated)', color: 'var(--color-teal)', padding: '2px 10px', borderRadius: '6px', border: '1px solid var(--color-border)', fontWeight: 600 }}><Clock size={12} /> Rest: {session.rest}</span>
+              <span style={{ background: 'rgba(16, 185, 129, 0.1)', color: 'var(--color-emerald)', padding: '2px 10px', borderRadius: '6px', border: '1px solid rgba(16, 185, 129, 0.2)', fontWeight: 600 }}>{session.difficulty}</span>
             </div>
             <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--color-text-tertiary)', lineHeight: 1.5 }}>{session.desc}</p>
           </div>
